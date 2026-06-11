@@ -3,6 +3,7 @@ import Hero from "./sections/Hero";
 import DateLoc from "./sections/DateLoc";
 import DressCode from "./sections/DressCode";
 import Rvsp from "./sections/Rvsp";
+import WishesSection from "./sections/Wishes";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <DateLoc />
       <DressCode />
       <Rvsp />
+      <WishesSection />
    </div>
   );
 }
