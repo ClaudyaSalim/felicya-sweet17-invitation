@@ -52,13 +52,16 @@ export default function WishesSection() {
             : wishes.map((wish) => (
                 <Wish key={wish._id.toString()} wish={wish} />
               ))}
-        <Pagination
-          totalPages={totalPages}
-          currPage={page}
-          setPage={(newPage) => {
-            setPage(newPage);
-          }}
-        />
+        {/* remove pagination if there's only 1 page */}
+        {totalPages !== 1 && (
+          <Pagination
+            totalPages={totalPages}
+            currPage={page}
+            setPage={(newPage) => {
+              setPage(newPage);
+            }}
+          />
+        )}
       </div>
     </div>
   );
