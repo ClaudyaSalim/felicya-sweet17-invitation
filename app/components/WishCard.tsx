@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { WishModel } from "../models/Wish";
 
 type WishProps = {
@@ -10,7 +11,7 @@ function formatTime(postDate: Date) {
   const postDateObj = new Date(postDate)
   console.log(postDateObj) // return Wed Jun 10 2026 19:06:00 GMT+0700 (Western Indonesia Time)
 
-  const diffInSeconds = Math.floor((now.getTime() - postDateObj.getTime() / 1000));
+  const diffInSeconds = Math.floor((now.getTime() - postDateObj.getTime()) / 1000);
   console.log(diffInSeconds)
 
   if (diffInSeconds < 60) {
@@ -44,9 +45,14 @@ function formatTime(postDate: Date) {
 }
 
 export default function Wish({ wish }: WishProps) {
+  const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => setMounted(true), []);
+  
   const postDate = formatTime(wish.date);
+
   return (
-    <div className="bg-pink-50 p-4 rounded-md w-full flex flex-col gap-2 items-start">
+    <div className="bg-pink-50 p-4 rounded-lg w-full flex flex-col items-start">
       <span className="font-subheading text-2xl">{wish.name}</span>
       <span className="text-pink-400">{postDate}</span>
       <p className="text-gray-700">{wish.message}</p>

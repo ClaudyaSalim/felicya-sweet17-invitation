@@ -1,41 +1,50 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { WishModel } from "../models/Wish";
 import Wish from "../components/WishCard";
+import WishForm from "../components/Forms/WishForm";
+import Pagination from "../components/Pagination";
 
 export default function WishesSection() {
   const [wishes, setWishes] = useState<WishModel[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
+  const [sort, setSort] = useState("newest");
+  const [totalPages, setTotalPages] = useState(0);
+
+  const getWishes = useCallback(async () => {
+    try {
+      setLoading(true);
+      const response = await fetch(`/api/wishes?page=${page}&sort=${sort}`, {
+        method: "GET",
+      });
+
+      if (!response.ok) {
+        const message = `An error occurred: ${response.statusText}`;
+        console.error(message);
+        return;
+      }
+      const res = await response.json();
+      setWishes(res.wishes);
+      setTotalPages(res.total_pages);
+    } catch (error) {
+      console.error("Error fetching wishes: ", error);
+    } finally {
+      setLoading(false);
+    }
+  }, [page, sort]);
 
   useEffect(() => {
-    async function getWishes() {
-      try {
-        const response = await fetch("/api/wishes", { method: "GET" });
-
-        if (!response.ok) {
-          const message = `An error occurred: ${response.statusText}`;
-          console.error(message);
-          return;
-        }
-        const wishes = await response.json();
-        setWishes(wishes);
-      } catch (error) {
-        console.error("Error fetching wishes: ", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
     getWishes();
-  }, []);
+  }, [getWishes]);
 
   return (
     <div className="w-full h-fit py-6 flex flex-col items-center">
       <h2>Send Your Wishes</h2>
-      <form></form>
-      <div className="p-6 w-full h-screen flex flex-col items-center">
-        <h2>All Wishes</h2>
+      <WishForm onWishCreated={getWishes} />
+      <div className="p-6 w-full h-screen flex flex-col items-center gap-3">
+        <h2 className="text-2xl">All Wishes</h2>
         {loading
           ? "Loading wishes ..."
           : wishes.length == 0
@@ -43,6 +52,13 @@ export default function WishesSection() {
             : wishes.map((wish) => (
                 <Wish key={wish._id.toString()} wish={wish} />
               ))}
+        <Pagination
+          totalPages={totalPages}
+          currPage={page}
+          setPage={(newPage) => {
+            setPage(newPage);
+          }}
+        />
       </div>
     </div>
   );

@@ -42,4 +42,24 @@ body {
   h2 {
     @apply font-subheading text-3xl
   }
+
+  input, textarea {
+    @apply p-3 bg-white rounded-lg border-0
+  }
+
+  input:focus, textarea:focus {
+    @apply outline-pink-400 border-0 outline-2
+  }
+
+  button {
+    @apply p-3 bg-pink-400 rounded-full cursor-pointer
+  }
+
+  button:disabled {
+    @apply opacity-50 cursor-not-allowed
+  }
+
+  a {
+    @apply flex flex-row justify-center items-center w-fit gap-2
+  }
 }

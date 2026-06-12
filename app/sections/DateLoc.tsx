@@ -1,4 +1,4 @@
-import { FiCornerUpRight } from "react-icons/fi";
+import { FiCalendar, FiCornerUpRight } from "react-icons/fi";
 
 export default function DateLoc(){
     return <section className="w-full h-screen flex flex-col justify-between lg:flex-row lg:items-center">
@@ -21,6 +21,7 @@ export default function DateLoc(){
                     <hr className="w-full"/>
                 </div>
             </div>
+            <button><a href="https://calendar.app.google/AzyULqYtV4hbhP7P8" target="_blank" rel="noopener noreferrer">Add to Google Calendar <FiCalendar /></a></button>
             {/* to be added countdown component */}
         </div>
 
