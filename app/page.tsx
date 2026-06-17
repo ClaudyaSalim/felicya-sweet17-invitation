@@ -4,10 +4,12 @@ import DateLoc from "./sections/DateLoc";
 import DressCode from "./sections/DressCode";
 import Rvsp from "./sections/Rvsp";
 import WishesSection from "./sections/Wishes";
+import Navbar from "./components/Navbar";
 
 export default function Home() {
   return (
-   <div className="min-h-screen w-full lg:px-20">
+   <div className="min-h-screen w-full lg:px-20 flex flex-col gap-20">
+      <Navbar />
       <Hero />
       <DateLoc />
       <DressCode />

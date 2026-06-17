@@ -40,7 +40,7 @@ export default function WishesSection() {
   }, [getWishes]);
 
   return (
-    <div className="w-full h-fit py-6 flex flex-col items-center">
+    <div className="w-full h-fit py-6 flex flex-col items-center" id="wishes">
       <h2>Send Your Wishes</h2>
       <WishForm onWishCreated={getWishes} />
       <div className="p-6 w-full h-screen flex flex-col items-center gap-3">

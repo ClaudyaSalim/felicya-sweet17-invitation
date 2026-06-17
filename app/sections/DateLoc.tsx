@@ -1,7 +1,7 @@
 import { FiCalendar, FiCornerUpRight } from "react-icons/fi";
 
 export default function DateLoc(){
-    return <section className="w-full h-screen flex flex-col justify-between lg:flex-row lg:items-center">
+    return <section className="w-full h-screen flex flex-col justify-between lg:flex-row lg:items-center" id="date-time">
         <div className="date-time-section flex flex-col items-center">
             <h2>Date</h2>
             <div className="date-time w-full flex flex-row gap-6 lg:w-fit">

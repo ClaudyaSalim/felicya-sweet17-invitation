@@ -1,5 +1,5 @@
 export default function DressCode(){
-    return <section className="w-full h-screen flex flex-col items-center justify-center">
+    return <section className="w-full h-screen flex flex-col items-center justify-center" id="dresscode">
         <h2>Dress Code</h2>
         <div className="palette flex flex-row gap-6">
             <span className="size-20 bg-[#aec8b6] rounded-full flex flex-row items-center justify-center text-xl">Male</span>
