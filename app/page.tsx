@@ -6,10 +6,11 @@ import Rvsp from "./sections/Rvsp";
 import WishesSection from "./sections/Wishes";
 import Navbar from "./components/Navbar";
 import Music from "./components/Music";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-   <div className="min-h-screen w-full lg:px-20 flex flex-col gap-20">
+   <div className="min-h-screen w-full flex flex-col gap-20">
       <Navbar />
       <Music />
       <Hero />
@@ -17,6 +18,7 @@ export default function Home() {
       <DressCode />
       <Rvsp />
       <WishesSection />
+      <Footer />
    </div>
   );
 }

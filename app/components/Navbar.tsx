@@ -2,14 +2,7 @@
 
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
-
-const navLinks = [
-    {name: "Home", link: "#hero"},
-    {name: "Date & Location", link: "#date-time"},
-    {name: "Dress Code", link: "#dresscode"},
-    {name: "RVSP", link: "#rvsp"},
-    {name: "Wishes", link: "#wishes"},
-]
+import { navLinks } from "../models/NavLinks";
 
 export default function Navbar(){
 
