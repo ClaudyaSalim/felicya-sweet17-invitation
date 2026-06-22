@@ -17,7 +17,7 @@ export default function Navbar(){
 
     return <nav className={`z-1 fixed right-0 top-0 bg-pink-400 flex flex-col items-end rounded-bl-full ${isToggled? "pl-14 pb-14":"w-fit pl-4 pb-4"}`}>
         <button id="nav-btn" className="w-fit" onClick={()=>{setIsToggled(!isToggled)}}>
-            {isToggled? <FiX className="text-white"/> : <FiMenu className="text-white" />}
+            {isToggled? <FiX className="text-white size-6"/> : <FiMenu className="text-white size-6" />}
         </button>
         <div className={`${!isToggled? "hidden" : "flex flex-col p-3 rounded-2xl"}`}>
             {navLinks.map((nav)=>
