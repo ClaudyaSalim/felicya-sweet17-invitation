@@ -18,10 +18,10 @@ export default function Rsvp() {
           </a>
         </button>
       </div>
-      <p className="mt-6">
+      <p className="mt-2 lg:mt-6">
         Or fill in below - <b className="font-semibold">Don't forget to submit!</b>
       </p>
-      <p className="text-gray-500 -mt-4 font-semibold">Already submitted through the new tab? Don't submit it again on this page.</p>
+      <p className="text-gray-500 font-semibold text-center px-6 flex flex-wrap justify-center gap-1">Already submitted through the new tab? <span>Don't submit it again on this page.</span></p>
       <RsvpForm />
     </div>
   );
