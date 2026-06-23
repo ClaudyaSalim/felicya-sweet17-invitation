@@ -9,10 +9,12 @@ import Music from "./components/Music";
 import Footer from "./components/Footer";
 import Gallery from "./sections/Gallery";
 import EndSection from "./sections/EndSection";
+import EnvelopeCover from "./sections/EnvelopeCover";
 
 export default function Home() {
   return (
-   <div className="min-h-screen w-full flex flex-col gap-20">
+    <div className="min-h-screen w-full flex flex-col gap-20">
+      <EnvelopeCover />
       <Navbar />
       <Music />
       <Hero />
@@ -23,6 +25,6 @@ export default function Home() {
       <Gallery />
       <EndSection />
       <Footer />
-   </div>
+    </div>
   );
 }

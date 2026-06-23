@@ -28,6 +28,10 @@
   }
 }
 
+@utility clip-triangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
