@@ -48,7 +48,7 @@ export default function CountdownTimer(){
         {units.map((unit, i)=><div key={unit.label} className="flex flex-row gap-3">
             <div className="flex flex-col items-center">
                 <span className="font-heading text-5xl">{String(unit.value).padStart(2, "0")}</span>
-                <span>{unit.label}</span>
+                <span className="uppercase text-sm tracking-widest">{unit.label}</span>
             </div>
             {i!==units.length-1 && <span className="text-5xl">:</span>}
         </div>)}
