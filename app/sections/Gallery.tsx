@@ -1,5 +1,5 @@
 import Image from "next/image";
-import ViewPhotoBtn from "../components/Gallery/ViewPhotoBtn";
+import ViewPhotoBtn from "../components/gallery/ViewPhotoBtn";
 
 export default function Gallery() {
   return (
