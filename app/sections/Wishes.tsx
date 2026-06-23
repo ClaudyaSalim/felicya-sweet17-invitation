@@ -52,7 +52,7 @@ export default function WishesSection() {
                 <Wish key={wish._id.toString()} wish={wish} />
               ))}
         {/* remove pagination if there's only 1 page */}
-        {totalPages !== 1 && (
+        {totalPages >1 && (
           <Pagination
             totalPages={totalPages}
             currPage={page}

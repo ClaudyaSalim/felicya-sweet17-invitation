@@ -7,6 +7,7 @@ import WishesSection from "./sections/Wishes";
 import Navbar from "./components/Navbar";
 import Music from "./components/Music";
 import Footer from "./components/Footer";
+import Gallery from "./sections/Gallery";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <DressCode />
       <Rvsp />
       <WishesSection />
+      <Gallery />
       <Footer />
    </div>
   );

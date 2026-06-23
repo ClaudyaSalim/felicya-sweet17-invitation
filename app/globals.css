@@ -36,34 +36,36 @@ body {
 
 @layer base {
   h1 {
-    @apply font-heading text-7xl
+    @apply font-heading text-7xl;
   }
 
   h2 {
-    @apply font-subheading text-3xl
+    @apply font-subheading text-3xl;
   }
 
-  input, textarea {
-    @apply p-3 bg-white rounded-lg border-0
+  input,
+  textarea {
+    @apply p-3 bg-white rounded-lg border-0;
   }
 
-  input:focus, textarea:focus {
-    @apply outline-pink-400 border-0 outline-2
+  input:focus,
+  textarea:focus {
+    @apply outline-pink-400 border-0 outline-2;
   }
 
   button {
-    @apply p-3 bg-pink-400 rounded-full cursor-pointer text-white
+    @apply p-3 bg-pink-400 rounded-full cursor-pointer text-white;
   }
 
   button:disabled {
-    @apply opacity-50 cursor-not-allowed text-white
+    @apply opacity-15 cursor-not-allowed text-white;
   }
 
   a {
-    @apply flex flex-row justify-center items-center w-fit gap-2 text-pink-400
+    @apply flex flex-row justify-center items-center w-fit gap-2 text-pink-400;
   }
 
   button a {
-    @apply text-white
+    @apply text-white;
   }
 }
