@@ -4,21 +4,24 @@ import { FiExternalLink } from "react-icons/fi";
 
 export default function Rsvp() {
   return (
-    <div className="w-full h-fit flex flex-col items-center" id="rvsp">
+    <div className="w-full h-fit flex flex-col items-center gap-6" id="rvsp">
       <h2>RSVP</h2>
-      <p>Click the button below to RSVP</p>
-      <button>
-        <a
-          href="https://forms.gle/bpMFEMCAVqwgisWW6"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          RSVP Now <FiExternalLink />
-        </a>
-      </button>
-      <p className="flex flex-row gap-4">
-        Or fill in the Google Form below - Don't forget to submit!
+      <div className="flex flex-col gap-4 items-center">
+        Open the form in new tab
+        <button>
+          <a
+            href="https://forms.gle/bpMFEMCAVqwgisWW6"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            RVSP Form <FiExternalLink />
+          </a>
+        </button>
+      </div>
+      <p className="mt-6">
+        Or fill in below - <b className="font-semibold">Don't forget to submit!</b>
       </p>
+      <p className="text-gray-500 -mt-4 font-semibold">Already submitted through the new tab? Don't submit it again on this page.</p>
       <RsvpForm />
     </div>
   );
