@@ -4,4 +4,5 @@ export const navLinks = [
     {name: "Dress Code", link: "#dresscode"},
     {name: "RVSP", link: "#rvsp"},
     {name: "Wishes", link: "#wishes"},
+    {name: "Gallery", link: "#gallery"},
 ]
