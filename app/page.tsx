@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import Music from "./components/Music";
 import Footer from "./components/Footer";
 import Gallery from "./sections/Gallery";
+import DDayPhotosSection from "./sections/DDayPhotos";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <Rvsp />
       <WishesSection />
       <Gallery />
+      <DDayPhotosSection />
       <Footer />
    </div>
   );
