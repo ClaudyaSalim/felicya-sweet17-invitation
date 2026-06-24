@@ -39,7 +39,7 @@ export default function EnvelopeCover() {
   const MotionImage = motion.create(Image);
 
   return (
-    <div className="z-10 w-full h-screen bg-[url(/envelope-cover-bg.jpeg)] bg-cover bg-center lg:bg-position-[center_top_95rem] relative overflow-hidden">
+    <div className="z-10 w-full h-screen bg-[url(/envelope-cover-bg.jpeg)] bg-cover bg-center lg:bg-position-[center_top_88rem] relative overflow-hidden">
       <div className="z-11 absolute inset-0 w-full h-full bg-linear-to-b from-white/0 to-rose-50 backdrop-blur-[1px]"></div>
       <div
         className={`${!envShow && "hidden"} z-13 relative w-100 h-80 top-1/2 left-1/2 transform -translate-1/2`}
