@@ -18,7 +18,7 @@ export default function DateLoc(){
                 </div>
                 <div className="time flex flex-col items-center justify-center gap-2 w-full">
                     <hr className="w-full"/>
-                    <span className="uppercase px-2.5">17.00 PM</span>
+                    <span className="uppercase px-2.5">17.30 PM</span>
                     <hr className="w-full"/>
                 </div>
             </div>

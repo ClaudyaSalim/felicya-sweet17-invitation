@@ -36,7 +36,7 @@ export default function Music() {
 
   return (
     <div
-      className={`z-1 w-fit fixed right-0 bottom-4`}
+      className={`z-12 w-fit fixed right-0 bottom-4`}
     >
       <div
         id="yt-player"
