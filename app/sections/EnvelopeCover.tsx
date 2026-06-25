@@ -1,11 +1,15 @@
-"use client";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "motion/react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import useBreakpoint from "../hooks/useBreakpoint";
 
-export default function EnvelopeCover() {
+type EnvelopeCoverProps = {
+  toggleMusic: ()=>void
+}
+
+export default function EnvelopeCover({toggleMusic}:EnvelopeCoverProps) {
   const params = useSearchParams();
   const to = params.get("to");
 
@@ -37,6 +41,7 @@ export default function EnvelopeCover() {
   }, [envShow, open]);
 
   const MotionImage = motion.create(Image);
+  const isLg = useBreakpoint()
 
   return (
     <div className="z-10 w-full h-screen bg-[url(/envelope-cover-bg.jpeg)] bg-cover bg-center lg:bg-position-[center_top_88rem] relative overflow-hidden">
@@ -49,6 +54,7 @@ export default function EnvelopeCover() {
           className="absolute envelope w-full h-60 bg-amber-50 flex flex-col justify-between items-center p-10 bottom-0 left-0 cursor-pointer"
           onClick={() => {
             setOpen(true);
+            toggleMusic()
           }}
         >
           <p className="w-full font-heading text-3xl">{`Dear ${to === null || to === "" ? "Guest" : to},`}</p>
@@ -62,14 +68,13 @@ export default function EnvelopeCover() {
         ></div>
       </div>
       {/* paper */}
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         {open && (
           <motion.div
             className={`z-11 absolute w-full md:w-[80%] lg:w-fit h-full top-0 left-1/2 transform -translate-x-1/2  flex flex-col justify-center items-center`}
             initial={{
-              scale: 0.5, // or how to set different scale for lg:
+              scale: isLg? 0.8 : 0.5,
               originY: "0%", 
-              // width: "calc(var(--spacing) * 100)",
               overflow: "hidden",
               backgroundColor: "#FCF7F3",
             }}

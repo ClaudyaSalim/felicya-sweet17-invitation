@@ -1,12 +1,17 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
+import { RefObject, useEffect, useRef, useState } from "react";
 import { FiPause, FiPlay } from "react-icons/fi";
 
-export default function Music() {
-  const playerRef = useRef<any>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [ready, setReady] = useState(false);
+type MusicProps = {
+  playerRef: RefObject<any>
+  isPlaying: boolean
+  onReady: (ready:boolean)=>void
+  toggleMusic: () => void
+}
+
+export default function Music({playerRef, isPlaying, onReady, toggleMusic}:MusicProps) {
+  // const playerRef = useRef<any>(null);
+  // const [isPlaying, setIsPlaying] = useState(false);
+  // const [ready, setReady] = useState(false);
   const videoId = process.env.NEXT_PUBLIC_BGM_ID;
 
   useEffect(() => {
@@ -18,21 +23,21 @@ export default function Music() {
         videoId,
         playerVars: { autoplay: 0, controls: 0, loop: 1, playlist: videoId },
         events: {
-          onReady: () => setReady(true),
+          onReady: () => onReady(true),
         },
       });
     };
   }, []);
 
-  const toggle = () => {
-    if (!ready) return;
-    if (isPlaying) {
-      playerRef.current.pauseVideo();
-    } else {
-      playerRef.current.playVideo();
-    }
-    setIsPlaying(!isPlaying);
-  };
+  // const toggle = () => {
+  //   if (!ready) return;
+  //   if (isPlaying) {
+  //     playerRef.current.pauseVideo();
+  //   } else {
+  //     playerRef.current.playVideo();
+  //   }
+  //   setIsPlaying(!isPlaying);
+  // };
 
   return (
     <div
@@ -42,7 +47,7 @@ export default function Music() {
         id="yt-player"
         className="w-1 h-1 opacity-0 pointer-events-none"
       ></div>
-      <button onClick={toggle} className="bg-pink-400 rounded-l-full rounded-r-none">{isPlaying ? <FiPause className="size-5"/> : <FiPlay className="size-5"/>}</button>
+      <button onClick={toggleMusic} className="bg-pink-400 rounded-l-full rounded-r-none">{isPlaying ? <FiPause className="size-5"/> : <FiPlay className="size-5"/>}</button>
     </div>
   );
 }
