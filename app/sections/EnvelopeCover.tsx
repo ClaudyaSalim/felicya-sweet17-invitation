@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, stagger } from "framer-motion";
 import { AnimatePresence } from "motion/react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
@@ -6,10 +6,10 @@ import { useEffect, useState } from "react";
 import useBreakpoint from "../hooks/useBreakpoint";
 
 type EnvelopeCoverProps = {
-  toggleMusic: ()=>void
-}
+  toggleMusic: () => void;
+};
 
-export default function EnvelopeCover({toggleMusic}:EnvelopeCoverProps) {
+export default function EnvelopeCover({ toggleMusic }: EnvelopeCoverProps) {
   const params = useSearchParams();
   const to = params.get("to");
 
@@ -41,7 +41,7 @@ export default function EnvelopeCover({toggleMusic}:EnvelopeCoverProps) {
   }, [envShow, open]);
 
   const MotionImage = motion.create(Image);
-  const isLg = useBreakpoint()
+  const isLg = useBreakpoint();
 
   return (
     <div className="z-10 w-full h-screen bg-[url(/envelope-cover-bg.jpeg)] bg-cover bg-center lg:bg-position-[center_top_88rem] relative overflow-hidden">
@@ -54,7 +54,7 @@ export default function EnvelopeCover({toggleMusic}:EnvelopeCoverProps) {
           className="absolute envelope w-full h-60 bg-amber-50 flex flex-col justify-between items-center p-10 bottom-0 left-0 cursor-pointer"
           onClick={() => {
             setOpen(true);
-            toggleMusic()
+            toggleMusic();
           }}
         >
           <p className="w-full font-heading text-3xl">{`Dear ${to === null || to === "" ? "Guest" : to},`}</p>
@@ -71,20 +71,23 @@ export default function EnvelopeCover({toggleMusic}:EnvelopeCoverProps) {
       <AnimatePresence>
         {open && (
           <motion.div
-            className={`z-11 absolute w-full md:w-[80%] lg:w-fit h-full top-0 left-1/2 transform -translate-x-1/2  flex flex-col justify-center items-center`}
+            className={`z-11 absolute w-full md:w-[80%] lg:w-fit h-full top-0 left-1/2 transform -translate-x-1/2 flex flex-col justify-center items-center [--scale-paper:0.5] lg:[--scale-paper:0.8] [--start-point-paper:20%] lg:[--start-point-paper:0%]`}
             initial={{
-              scale: isLg? 0.8 : 0.5,
-              originY: "0%", 
+              scale: "var(--scale-paper)",
+              originY: "var(--start-point-paper)",
               overflow: "hidden",
               backgroundColor: "#FCF7F3",
             }}
             animate={{
-              scale: 1, 
-              // width: "fit-content",
+              scale: 1,
               overflow: "visible",
               backgroundColor: "none",
             }}
-            transition={{ duration: 1, delay: 0.5, ease: "easeInOut" }}
+            transition={{
+              duration: 1,
+              delay: 0.5,
+              ease: "easeInOut"
+            }}
           >
             <MotionImage
               src={"/Felicya-Invitation.jpeg"}
@@ -93,17 +96,17 @@ export default function EnvelopeCover({toggleMusic}:EnvelopeCoverProps) {
               height={1600}
               className="w-full h-auto lg:h-[80%] lg:w-auto"
               initial={{
-                opacity: 0
+                opacity: 0,
               }}
               animate={{
-                opacity: 1
+                opacity: 1,
               }}
               transition={{ duration: 1, delay: 0.5, ease: "linear" }}
             />
             <div className="w-full h-full flex flex-col items-center justify-center gap-6 lg:gap-3">
               <div className="flex flex-row w-full gap-6 justify-center lg:justify-between px-6">
                 {icons.map((icon) => (
-                  <div
+                  <motion.div
                     key={icon.label}
                     className={`bg-pink-300 size-30 lg:size-12`}
                     style={{
@@ -117,7 +120,9 @@ export default function EnvelopeCover({toggleMusic}:EnvelopeCoverProps) {
                   />
                 ))}
               </div>
-              <span className="text-2xl lg:text-sm">Scroll down for more</span>
+              <motion.span className="text-2xl lg:text-sm">
+                Scroll down for more
+              </motion.span>
             </div>
           </motion.div>
         )}
