@@ -37,17 +37,9 @@ export default function SlideShow() {
   return (
     <AnimatePresence>
       <div
-        className="relative w-full lg:w-[60%] h-full rounded-full overflow-hidden p-12"
-        style={{
-          maskImage: "radial-gradient(ellipse, black 30%, transparent 100%)",
-          WebkitMaskImage: "radial-gradient(ellipse, black 30%, transparent 100%)",
-          maskSize: "auto",
-          maskRepeat: "no-repeat",
-          maskPosition: "center",
-        }}
-      >
+        className="relative w-full lg:w-[60%] h-full rounded-full overflow-hidden">
         <MotionImage
-          className={`w-full h-full object-cover`}
+          className={`w-full h-full object-cover ${(currPhoto===4 || currPhoto===11) && "object-left lg:object-center"}`}
           src={photos[currPhoto]}
           alt={`Photo ${currPhoto + 1}`}
           width={600}
