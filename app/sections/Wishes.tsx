@@ -3,8 +3,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { WishModel } from "../models/Wish";
 import Wish from "../components/WishCard";
-import WishForm from "../components/forms/WishForm";
 import Pagination from "../components/Pagination";
+import WishForm from "../components/forms/WishForm";
 
 export default function WishesSection() {
   const [wishes, setWishes] = useState<WishModel[]>([]);
@@ -40,7 +40,10 @@ export default function WishesSection() {
   }, [getWishes]);
 
   return (
-    <div className="relative w-full h-fit p-6 flex flex-col items-center gap-6 pt-26 overflow-y-visible  overflow-x-clip" id="wishes">
+    <div
+      className="relative w-full h-fit p-6 flex flex-col items-center gap-6 pt-26 overflow-y-visible  overflow-x-clip"
+      id="wishes"
+    >
       <h2>Send Your Wishes</h2>
       <WishForm onWishCreated={getWishes} />
       <div className="py-6 w-full md:w-[60%] flex flex-col items-center gap-3 z-1">
@@ -68,10 +71,12 @@ export default function WishesSection() {
         aria-hidden="true"
         className="decor -top-5 left-0 w-70 lg:w-90 z-3"
         style={{
-          maskImage: "linear-gradient(to top, black 30%, transparent 90%), linear-gradient(to bottom, black 70%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to top, black 30%, transparent 90%), linear-gradient(to bottom, black 70%, transparent 100%)",
+          maskImage:
+            "linear-gradient(to top, black 30%, transparent 90%), linear-gradient(to bottom, black 70%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to top, black 30%, transparent 90%), linear-gradient(to bottom, black 70%, transparent 100%)",
           maskComposite: "intersect",
-          WebkitMaskComposite: "source-in"
+          WebkitMaskComposite: "source-in",
         }}
       />
     </div>
