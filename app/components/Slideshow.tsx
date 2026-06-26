@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { FiInstagram } from "react-icons/fi";
 // import Photo1 from "/slideshows/photo-1.jpeg"
 
 export default function SlideShow() {
@@ -14,7 +15,7 @@ export default function SlideShow() {
     "/slideshows/posergirl-2.jpeg",
     "/slideshows/posergirl-3.jpeg",
     "/slideshows/posergirl-4.jpeg",
-    "/slideshows/posergirl-5-new.jpeg",
+    "/slideshows/posergirl-5.jpeg",
     "/slideshows/posergirl-misc.jpeg",
     "/slideshows/pavillion-1.jpeg",
     "/slideshows/pavillion-2.jpeg",
@@ -39,11 +40,10 @@ export default function SlideShow() {
 
   return (
     <AnimatePresence mode="wait">
-      <div
-        className="relative w-full lg:w-[60%] h-full rounded-full overflow-hidden">
-        <div className="z-1 inset-0 absolute top-0 left-0 bg-radial from-soft-bg/0 to-soft-bg"/>
+      <div className="relative w-full lg:w-[60%] h-full rounded-full overflow-hidden">
+        <div className="z-1 inset-0 absolute top-0 left-0 bg-radial from-soft-bg/0 to-soft-bg" />
         <MotionImage
-          className={`w-full h-full object-cover ${(currPhoto===4) && "object-left lg:object-center"} ${(currPhoto<=3) && "object-top"}`}
+          className={`w-full h-full object-cover ${currPhoto === 4 && "object-left lg:object-center"} ${currPhoto <= 3 && "object-top"} ${currPhoto===13 && "object-bottom"}`}
           src={photos[currPhoto]}
           alt={`Photo ${currPhoto + 1}`}
           width={600}
@@ -59,6 +59,14 @@ export default function SlideShow() {
             maskImage: "radial-gradient(circle, black 65%, transparent 100%)",
           }}
         />
+        <a
+          href="https://www.instagram.com/felii.s_09/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="z-1 absolute bottom-0 left-0 rounded-full bg-secondary"
+        >
+          <FiInstagram className="size-16" />
+        </a>
       </div>
     </AnimatePresence>
   );

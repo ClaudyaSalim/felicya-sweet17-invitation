@@ -1,5 +1,5 @@
 export const navLinks = [
-    {name: "Home", link: "#hero"},
+    {name: "Home", link: "#home"},
     {name: "Date & Location", link: "#date-time"},
     {name: "Dress Code", link: "#dresscode"},
     {name: "RVSP", link: "#rvsp"},

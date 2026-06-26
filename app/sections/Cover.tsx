@@ -6,12 +6,16 @@ import EnvelopeCover from "./EnvelopeCover";
 
 export default function Cover() {
   const playerRef = useRef<any>(null);
+  const shouldPlayRef = useRef(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
     const hasOpened = sessionStorage.getItem("coverOpened");
     if (!hasOpened) {
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
       setTimeout(() => {
         window.scrollTo({ top: 0, behavior: "instant" });
       }, 0);
@@ -23,7 +27,10 @@ export default function Cover() {
     console.log("ready:", ready);
     console.log("playerRef.current:", playerRef.current);
     console.log("isPlaying:", isPlaying);
-    if (!ready) return;
+    if (!ready) {
+      shouldPlayRef.current = true;
+      return;
+    }
     if (isPlaying) {
       playerRef.current.pauseVideo();
     } else {
@@ -37,6 +44,7 @@ export default function Cover() {
       <EnvelopeCover toggleMusic={toggleMusic} />
       <Music
         playerRef={playerRef}
+        shouldPlayRef={shouldPlayRef}
         isPlaying={isPlaying}
         onReady={(ready) => {
           setReady(ready);

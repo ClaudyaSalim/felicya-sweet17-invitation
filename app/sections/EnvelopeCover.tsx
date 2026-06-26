@@ -53,7 +53,7 @@ export default function EnvelopeCover({ toggleMusic }: EnvelopeCoverProps) {
       >
         {/* front face */}
         <div
-          className="absolute envelope w-full h-60 bg-amber-50 flex flex-col justify-between items-center p-10 bottom-0 left-0 cursor-pointer"
+          className="absolute envelope w-full h-60 bg-amber-50 flex flex-col justify-between items-center p-10 bottom-0 left-0 cursor-pointer rounded-lg"
           onClick={() => {
             setOpen(true);
             toggleMusic();
@@ -66,7 +66,7 @@ export default function EnvelopeCover({ toggleMusic }: EnvelopeCoverProps) {
           </p>
         </div>
         <div
-          className={`opening clip-triangle w-100 h-20 bg-amber-100 absolute top-0 left-0 transform ${!open ? "hidden" : "rotate-0 translate-y-0"}`}
+          className={`opening clip-triangle rounded-t-lg w-100 h-20 bg-amber-100 absolute top-0 left-0 transform ${!open ? "hidden" : "rotate-0 translate-y-0"}`}
         ></div>
       </div>
       {/* paper */}

@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section
       className="relative w-full h-screen flex flex-col justify-between items-center lg:flex-row gap-6 p-6 pt-26 lg:pl-20 overflow-y-visible overflow-x-hidden"
-      id="hero"
+      id="home"
     >
       <SlideShow />
       <div className="w-full flex flex-col justify-center items-center gap-6">

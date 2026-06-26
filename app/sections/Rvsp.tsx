@@ -5,34 +5,37 @@ import { FiExternalLink } from "react-icons/fi";
 export default function Rsvp() {
   return (
     <div
-      className="relative w-full h-fit flex flex-col items-center gap-6 pb-6 pt-16 overflow-y-visible"
+      className="relative pb-6 pt-16 overflow-y-visible bg-[url(/sakura-bg-3.jpg)] bg-cover bg-bottom bg-no-repeat"
       id="rvsp"
     >
-      <h2>RSVP</h2>
-      <div className="flex flex-col gap-4 items-center">
-        Open the form in new tab
-        <button>
-          <a
-            href="https://forms.gle/bpMFEMCAVqwgisWW6"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            RVSP Form <FiExternalLink />
-          </a>
-        </button>
+      <div className="absolute inset-0 w-full h-full bg-linear-to-b from-soft-bg via-soft-bg/20 to-soft-bg" />
+      <div className="z-2 w-full h-fit flex flex-col items-center gap-6 backdrop-blur-[1px]">
+        <h2>RSVP</h2>
+        <div className="flex flex-col gap-4 items-center">
+          Open the form in new tab
+          <button>
+            <a
+              href="https://forms.gle/bpMFEMCAVqwgisWW6"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              RVSP Form <FiExternalLink />
+            </a>
+          </button>
+        </div>
+        <p className="mt-2 lg:mt-6 px-6 flex-row flex-wrap text-center">
+          Or fill in below -{" "}
+          <b className="font-semibold">Don't forget to submit!</b>{" "}
+          <span className="text-gray-500 text-nowrap">
+            Latest by 13th July 2026 23:59 WIB
+          </span>
+        </p>
+        <p className="text-gray-500 font-semibold text-center px-6 flex flex-wrap justify-center gap-1">
+          Already submitted through the new tab?{" "}
+          <span>You don't have to submit it again on this page.</span>
+        </p>
+        <RsvpForm />
       </div>
-      <p className="mt-2 lg:mt-6 px-6 flex-row flex-wrap text-center">
-        Or fill in below -{" "}
-        <b className="font-semibold">Don't forget to submit!</b>{" "}
-        <span className="text-gray-500 text-nowrap">
-          Latest by 13th July 2026 23:59 WIB
-        </span>
-      </p>
-      <p className="text-gray-500 font-semibold text-center px-6 flex flex-wrap justify-center gap-1">
-        Already submitted through the new tab?{" "}
-        <span>You don't have to submit it again on this page.</span>
-      </p>
-      <RsvpForm />
       <img
         src={"/assets/inv/flowers-top-left-sm.png"}
         alt="Flowers"
@@ -52,10 +55,12 @@ export default function Rsvp() {
         aria-hidden="true"
         className="decor -top-48 left-0 size-50 lg:size-60 z-3 drop-shadow-upwards"
         style={{
-          maskImage: "radial-gradient(circle at bottom, black 30%, transparent 88%), linear-gradient(150deg, black 70%, transparent 95%)",
-          WebkitMaskImage: "radial-gradient(circle at bottom, black 30%, transparent 88%), linear-gradient(150deg, black 70%, transparent 95%)",
+          maskImage:
+            "radial-gradient(circle at bottom, black 30%, transparent 88%), linear-gradient(150deg, black 70%, transparent 95%)",
+          WebkitMaskImage:
+            "radial-gradient(circle at bottom, black 30%, transparent 88%), linear-gradient(150deg, black 70%, transparent 95%)",
           maskComposite: "intersect",
-          WebkitMaskComposite: "source-in"
+          WebkitMaskComposite: "source-in",
         }}
       />
     </div>

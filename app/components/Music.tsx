@@ -3,6 +3,7 @@ import { FiPause, FiPlay } from "react-icons/fi";
 
 type MusicProps = {
   playerRef: RefObject<any>;
+  shouldPlayRef: RefObject<any>;
   isPlaying: boolean;
   onReady: (ready: boolean) => void;
   toggleMusic: () => void;
@@ -10,6 +11,7 @@ type MusicProps = {
 
 export default function Music({
   playerRef,
+  shouldPlayRef,
   isPlaying,
   onReady,
   toggleMusic,
@@ -32,6 +34,9 @@ export default function Music({
           onReady: () => {
             onReady(true);
             console.log("player ready");
+            if(shouldPlayRef.current) {
+              playerRef.current?.playVideo()
+            }
           },
         },
       });
