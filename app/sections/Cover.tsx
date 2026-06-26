@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import Music from "../components/Music";
 import EnvelopeCover from "./EnvelopeCover";
 
@@ -41,7 +41,9 @@ export default function Cover() {
 
   return (
     <div className="h-screen w-full flex flex-col gap-20">
-      <EnvelopeCover toggleMusic={toggleMusic} />
+      <Suspense>
+        <EnvelopeCover toggleMusic={toggleMusic} />
+      </Suspense>
       <Music
         playerRef={playerRef}
         shouldPlayRef={shouldPlayRef}
