@@ -59,14 +59,6 @@ export default function SlideShow() {
             maskImage: "radial-gradient(circle, black 65%, transparent 100%)",
           }}
         />
-        <a
-          href="https://www.instagram.com/felii.s_09/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="z-1 absolute bottom-0 left-0 rounded-full bg-secondary"
-        >
-          <FiInstagram className="size-16" />
-        </a>
       </div>
     </AnimatePresence>
   );

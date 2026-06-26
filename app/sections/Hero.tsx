@@ -1,3 +1,4 @@
+import { FiInstagram } from "react-icons/fi";
 import SlideShow from "../components/Slideshow";
 
 export default function Hero() {
@@ -7,6 +8,14 @@ export default function Hero() {
       id="home"
     >
       <SlideShow />
+      <a
+        href="https://www.instagram.com/felii.s_09/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="z-2 rounded-full bg-secondary p-3 -mt-16 lg:self-end lg:-ml-36"
+      >
+        <FiInstagram className="size-12 text-white" />
+      </a>
       <div className="w-full flex flex-col justify-center items-center gap-6">
         <span className="text-zinc-600">YOU ARE CORDIALLY INVITED TO</span>
         <h1
@@ -24,7 +33,7 @@ export default function Hero() {
           Sweet 17<sup>th</sup> Birthday Party
         </h2>
       </div>
-      <div className="z-4 absolute top-0 left-0 right-0 h-40 bg-linear-to-t from-soft-bg-100/0 from-30% to-soft-bg"/>
+      <div className="z-4 absolute top-0 left-0 right-0 h-40 bg-linear-to-t from-soft-bg-100/0 from-30% to-soft-bg" />
       <img
         src={"/assets/inv/flowers-top-left.png"}
         alt="Flowers"
@@ -32,9 +41,10 @@ export default function Hero() {
         className="decor top-0 left-0 w-70 lg:w-60 z-3 drop-shadow-downwards"
         style={{
           maskImage: "linear-gradient(150deg, black 30%, transparent 47%)",
-          WebkitMaskImage: "linear-gradient(150deg, black 30%, transparent 47%)",
+          WebkitMaskImage:
+            "linear-gradient(150deg, black 30%, transparent 47%)",
           maskComposite: "intersect",
-          WebkitMaskComposite: "source-in"
+          WebkitMaskComposite: "source-in",
         }}
       />
       <img
@@ -44,9 +54,10 @@ export default function Hero() {
         className="decor top-0 right-0 w-60 z-3 drop-shadow-downwards"
         style={{
           maskImage: "linear-gradient(-150deg, black 30%, transparent 60%)",
-          WebkitMaskImage: "linear-gradient(-150deg, black 30%, transparent 60%)",
+          WebkitMaskImage:
+            "linear-gradient(-150deg, black 30%, transparent 60%)",
           maskComposite: "intersect",
-          WebkitMaskComposite: "source-in"
+          WebkitMaskComposite: "source-in",
         }}
       />
     </section>
