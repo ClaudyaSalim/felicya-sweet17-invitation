@@ -40,10 +40,10 @@ export default function WishesSection() {
   }, [getWishes]);
 
   return (
-    <div className="w-full h-fit py-6 flex flex-col items-center" id="wishes">
+    <div className="w-full h-fit p-6 flex flex-col items-center gap-6" id="wishes">
       <h2>Send Your Wishes</h2>
       <WishForm onWishCreated={getWishes} />
-      <div className="p-6 w-full flex flex-col items-center gap-3">
+      <div className="py-6 w-full md:w-[60%] flex flex-col items-center gap-3">
         {loading
           ? "Loading wishes ..."
           : wishes.length == 0

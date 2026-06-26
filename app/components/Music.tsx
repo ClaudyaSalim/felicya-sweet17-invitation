@@ -17,22 +17,31 @@ export default function Music({
   const videoId = process.env.NEXT_PUBLIC_BGM_ID;
 
   useEffect(() => {
+    if (document.getElementById("yt-script")) return;
+
     const ytubeScript = document.createElement("script");
     ytubeScript.src = "https://www.youtube.com/iframe_api";
     document.body.appendChild(ytubeScript);
-    // console.log('initializing player');
-    (window as any).onYouTubeIframeAPIReady = () => {
+    console.log("initializing player");
+
+    const initPlayer = () => {
       playerRef.current = new (window as any).YT.Player("yt-player", {
         videoId,
         playerVars: { autoplay: 0, controls: 0, loop: 1, playlist: videoId },
         events: {
           onReady: () => {
             onReady(true);
-            // console.log("player ready");
+            console.log("player ready");
           },
         },
       });
     };
+
+    if ((window as any).YT?.Player) {
+      initPlayer();
+    } else {
+      (window as any).onYouTubeIframeAPIReady = initPlayer;
+    }
   }, []);
 
   return (
@@ -43,7 +52,7 @@ export default function Music({
       ></div>
       <button
         onClick={toggleMusic}
-        className="bg-pink-400 rounded-l-full rounded-r-none"
+        className="bg-primary rounded-l-full rounded-r-none"
       >
         {isPlaying ? (
           <FiPause className="size-5" />

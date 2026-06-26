@@ -4,22 +4,22 @@ import InputGroup from "../InputGroup";
 import TextArea from "../TextArea";
 
 type WishFormProps = {
-    onWishCreated: ()=>void;
-}
+  onWishCreated: () => void;
+};
 
-export default function WishForm({onWishCreated}: WishFormProps) {
+export default function WishForm({ onWishCreated }: WishFormProps) {
   const [state, formAction, isPending] = useActionState(handleSubmit, null);
   const formRef = useRef<HTMLFormElement>(null);
   const [disable, setDisable] = useState(true);
 
-  useEffect(()=>{
-    if(state?.success){
-        formRef.current?.reset()
-        onWishCreated()
+  useEffect(() => {
+    if (state?.success) {
+      formRef.current?.reset();
+      onWishCreated();
     }
-  }, [state, onWishCreated])
+  }, [state, onWishCreated]);
 
-  async function handleSubmit(_:unknown, formData: FormData) {
+  async function handleSubmit(_: unknown, formData: FormData) {
     const name = formData.get("name");
     const message = formData.get("wish");
 
@@ -30,7 +30,7 @@ export default function WishForm({onWishCreated}: WishFormProps) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: name===""?"Anonymous" : name,
+          name: name === "" ? "Anonymous" : name,
           message: message,
           createdAt: new Date(),
         }),
@@ -39,13 +39,12 @@ export default function WishForm({onWishCreated}: WishFormProps) {
       const result = await response.json();
 
       if (response.ok) {
-        
-        return { success: "Successfully subscribed!" }
+        return { success: "Successfully subscribed!" };
       } else {
-        return {error: result.message}
+        return { error: result.message };
       }
     } catch (error) {
-        return {error: error}
+      return { error: error };
     }
   }
 
@@ -53,7 +52,7 @@ export default function WishForm({onWishCreated}: WishFormProps) {
     <form
       action={formAction}
       ref={formRef}
-      className="w-[90%] lg:w-[60%] flex flex-col gap-10 bg-pink-50 p-6 rounded-lg"
+      className="w-full md:w-[60%] flex flex-col gap-10 bg-lg-element p-6 rounded-lg"
     >
       <InputGroup labelName="Name" labelFor="sender-name">
         <InputField
@@ -62,17 +61,23 @@ export default function WishForm({onWishCreated}: WishFormProps) {
           name="name"
           placeholder="Enter your name"
         />
-        <p className="text-gray-400 text-sm">If empty, your wish will be posted as anonymous</p>
+        <p className="text-gray-500 text-sm">
+          If empty, your wish will be posted as anonymous
+        </p>
       </InputGroup>
       <InputGroup labelName="Message" labelFor="sender-wish">
         <TextArea
           id="sender-wish"
           name="wish"
           placeholder="Enter your wishes here ..."
-          onChange={(e)=>{e.target.value===""? setDisable(true) : setDisable(false)}}
+          onChange={(e) => {
+            e.target.value === "" ? setDisable(true) : setDisable(false);
+          }}
         />
       </InputGroup>
-      <button type="submit" disabled={isPending||disable}>Send Wish</button>
+      <button type="submit" disabled={isPending || disable}>
+        Send Wish
+      </button>
     </form>
   );
 }

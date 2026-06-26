@@ -7,7 +7,7 @@ export async function GET(request: Request) {
   try {
     const client = await clientPromise;
     const db = client.db("felicya_sweet17");
-    const limit = 10;
+    const limit = 3;
     const page = parseInt(params.get("page") ?? "1");
     const skip = (page - 1) * limit;
 

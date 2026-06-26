@@ -16,9 +16,7 @@ export default function Home() {
   return (
     <div className="min-h-screen w-full flex flex-col gap-20">
       <Cover />
-      {/* <EnvelopeCover /> */}
       <Navbar />
-      {/* <Music /> */}
       <Hero />
       <DateLoc />
       <DressCode />

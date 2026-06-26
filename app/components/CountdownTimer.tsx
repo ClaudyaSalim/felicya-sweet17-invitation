@@ -47,10 +47,10 @@ export default function CountdownTimer(){
     return <div className="flex flex-row items-center gap-3">
         {units.map((unit, i)=><div key={unit.label} className="flex flex-row gap-3">
             <div className="flex flex-col items-center">
-                <span className="font-heading text-5xl">{String(unit.value).padStart(2, "0")}</span>
-                <span className="uppercase text-sm tracking-widest">{unit.label}</span>
+                <span className="font-heading text-5xl text-primary">{String(unit.value).padStart(2, "0")}</span>
+                <span className="uppercase text-sm tracking-widest text-primary-200">{unit.label}</span>
             </div>
-            {i!==units.length-1 && <span className="text-5xl">:</span>}
+            {i!==units.length-1 && <span className="text-5xl text-secondary">:</span>}
         </div>)}
     </div>
 }

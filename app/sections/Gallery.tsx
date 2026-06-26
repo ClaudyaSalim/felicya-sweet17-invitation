@@ -31,7 +31,7 @@ export default function Gallery() {
       className="relative w-full aspect-4/5 bg-[url(/photoshoot/cover.jpg)] bg-cover bg-center"
       id="gallery"
     >
-      <div className="relative inset-0 w-full h-full bg-linear-to-b from-white via-white/0 to-white"></div>
+      <div className="relative inset-0 w-full h-full bg-linear-to-b from-soft-bg via-soft-bg/0 to-soft-bg"></div>
       <div className="absolute top-0 w-full h-full px-20">
         <h2 className="relative text-center top-20">Special Moments</h2>
         <ViewPhotoBtn

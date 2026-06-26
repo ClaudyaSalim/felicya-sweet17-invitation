@@ -23,7 +23,7 @@ export default function Pagination({
   return (
     <div className="flex flex-row items-center justify-between w-full lg:w-[60%]">
       <button
-        className="bg-pink-300"
+        className="bg-secondary"
         disabled={currPage === 1}
         onClick={() => {
           setPage(currPage - 1);
@@ -40,7 +40,7 @@ export default function Pagination({
             onClick={() => {
               setPage(page);
             }}
-            className={`min-w-8 aspect-square max-w-full bg-transparent ${page !== currPage ? "" : "text-pink-400"}`}
+            className={`min-w-8 aspect-square max-w-full bg-transparent ${page !== currPage ? "text-secondary-200" : "text-primary"}`}
           >
             {page}
           </button>
@@ -52,7 +52,7 @@ export default function Pagination({
         onClick={() => {
           setPage(currPage + 1);
         }}
-        className="bg-pink-300"
+        className="bg-secondary"
       >
         Next
       </button>

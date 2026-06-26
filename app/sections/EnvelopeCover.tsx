@@ -24,6 +24,7 @@ export default function EnvelopeCover({ toggleMusic }: EnvelopeCoverProps) {
   ];
 
   useEffect(() => {
+    console.log("Open", open);
     document.body.style.overflow = !open ? "hidden" : "";
 
     return () => {
@@ -38,13 +39,15 @@ export default function EnvelopeCover({ toggleMusic }: EnvelopeCoverProps) {
         // set env show to false
         setEnvShow(false);
       }, 500);
-      return () => clearTimeout(timer)
+      return () => clearTimeout(timer);
     }
   }, [open]);
 
   return (
-    <div className={`z-10 w-full h-screen bg-[url(/envelope-cover-bg.jpeg)] bg-cover bg-center lg:bg-position-[center_top_88rem] relative`}>
-      <div className="z-11 absolute inset-0 w-full h-full bg-linear-to-b from-white/0 to-rose-50 backdrop-blur-[1px]"></div>
+    <div
+      className={`z-10 w-full h-screen bg-[url(/envelope-cover-bg.jpeg)] bg-cover bg-center lg:bg-position-[center_top_88rem] relative`}
+    >
+      <div className="z-11 absolute inset-0 w-full h-full bg-linear-to-b from-soft-bg/0 to-soft-bg backdrop-blur-[1px]"></div>
       <div
         className={`${!envShow && "hidden"} z-13 relative w-100 h-80 top-1/2 left-1/2 transform -translate-1/2`}
       >
@@ -107,7 +110,7 @@ export default function EnvelopeCover({ toggleMusic }: EnvelopeCoverProps) {
                 {icons.map((icon) => (
                   <motion.div
                     key={icon.label}
-                    className={`bg-pink-300 size-30 lg:size-12`}
+                    className={`bg-secondary size-30 lg:size-12`}
                     style={{
                       maskImage: `url(${icon.src})`,
                       WebkitMaskImage: `url(${icon.src})`,

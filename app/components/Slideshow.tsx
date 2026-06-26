@@ -35,9 +35,10 @@ export default function SlideShow() {
   }, []);
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       <div
         className="relative w-full lg:w-[60%] h-full rounded-full overflow-hidden">
+        <div className="z-1 inset-0 absolute top-0 left-0 bg-radial from-soft-bg/0 to-soft-bg to-90%"/>
         <MotionImage
           className={`w-full h-full object-cover ${(currPhoto===4 || currPhoto===11) && "object-left lg:object-center"}`}
           src={photos[currPhoto]}
