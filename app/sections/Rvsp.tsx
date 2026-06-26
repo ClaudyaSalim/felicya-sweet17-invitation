@@ -1,4 +1,3 @@
-import Image from "next/image";
 import RsvpForm from "../components/forms/RvspForm";
 import { FiExternalLink } from "react-icons/fi";
 
