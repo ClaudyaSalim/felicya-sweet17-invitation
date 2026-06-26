@@ -40,12 +40,12 @@ export default function Pagination({
             onClick={() => {
               setPage(page);
             }}
-            className={`min-w-8 aspect-square max-w-full bg-transparent ${page !== currPage ? "text-secondary-200" : "text-primary"}`}
+            className={`min-w-8 aspect-square max-w-full bg-transparent ${page !== currPage ? "text-neutral-400" : "text-primary"}`}
           >
             {page}
           </button>
         ))}
-        {windowEnd !== totalPages && <span className="mx-3">...</span>}
+        {windowEnd !== totalPages && <span className="mx-3 text-neutral-400">...</span>}
       </div>
       <button
         disabled={currPage === totalPages}

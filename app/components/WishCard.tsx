@@ -54,10 +54,10 @@ export default function Wish({ wish }: WishProps) {
   const postDate = formatTime(wish.date);
 
   return (
-    <div className="bg-lg-element-100 p-4 rounded-lg w-full flex flex-col items-start">
+    <div className="bg-lg-element-100 p-4 rounded-lg w-full h-fit flex flex-col items-start">
       <span className="font-subheading text-2xl">{wish.name}</span>
       <span className="text-primary">{postDate}</span>
-      <p className="text-neutral-600">{wish.message}</p>
+      <p className="text-neutral-600 w-full wrap-break-word whitespace-pre-line">{wish.message}</p>
     </div>
   );
 }

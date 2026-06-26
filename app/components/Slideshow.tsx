@@ -19,11 +19,14 @@ export default function SlideShow() {
     "/slideshows/pavillion-1.jpeg",
     "/slideshows/pavillion-2.jpeg",
     "/slideshows/kl-tower.jpeg",
+    "/slideshows/tasik.jpeg",
     "/slideshows/selfie-1.jpeg",
     "/slideshows/selfie-2.jpeg",
     "/slideshows/selfie-3.jpeg",
     "/slideshows/selfie-4.jpeg",
     "/slideshows/selfie-5.jpeg",
+    "/slideshows/selfie-6.jpeg",
+    "/slideshows/selfie-7.jpeg",
   ];
 
   useEffect(() => {
@@ -38,9 +41,9 @@ export default function SlideShow() {
     <AnimatePresence mode="wait">
       <div
         className="relative w-full lg:w-[60%] h-full rounded-full overflow-hidden">
-        <div className="z-1 inset-0 absolute top-0 left-0 bg-radial from-soft-bg/0 to-soft-bg to-90%"/>
+        <div className="z-1 inset-0 absolute top-0 left-0 bg-radial from-soft-bg/0 to-soft-bg"/>
         <MotionImage
-          className={`w-full h-full object-cover ${(currPhoto===4 || currPhoto===11) && "object-left lg:object-center"}`}
+          className={`w-full h-full object-cover ${(currPhoto===4) && "object-left lg:object-center"} ${(currPhoto<=3) && "object-top"}`}
           src={photos[currPhoto]}
           alt={`Photo ${currPhoto + 1}`}
           width={600}

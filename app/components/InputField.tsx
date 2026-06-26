@@ -1,10 +1,5 @@
-type InputFieldProps = {
-    type: string
-    name: string
-    id: string
-    placeholder?: string
-}
+type InputFieldProps = React.InputHTMLAttributes<HTMLInputElement>
 
 export default function InputField(props: InputFieldProps){
-    return <input type={props.type} name={props.name} id={props.id} placeholder={props.placeholder} />
+    return <input {...props} />
 }
