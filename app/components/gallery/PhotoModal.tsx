@@ -6,7 +6,7 @@ import { FiArrowLeft, FiArrowRight, FiX } from "react-icons/fi";
 
 type PhotoModal = {
   imageIdx: number;
-  setImageIdx: (image:number) => void;
+  setImageIdx: (image: number) => void;
   showPhoto: boolean;
   setShowPhoto: () => void;
 };
@@ -33,8 +33,12 @@ export default function PhotoModal({
   };
 
   return createPortal(
-    <div
+    <motion.div
       className={`z-20 fixed w-full h-screen bg-linear-to-b from-black/70 via-black/30 via-40% to-black/70`}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{opacity: 0}}
+      transition={{ duration: 0.3, ease: "easeIn" }}
     >
       <button
         className="absolute top-10 right-5 bg-transparent flex flex-row gap-2 items-center text-lg"
@@ -69,7 +73,7 @@ export default function PhotoModal({
           />
         </AnimatePresence>
       </div>
-      <div className="absolute w-[75%] lg:w-[90%] text-white flex flex-row justify-between items-center left-1/2 bottom-10 transform -translate-x-1/2 lg:top-1/2 lg:-translate-y-1/2">
+      <div className="absolute w-[75%] lg:w-[90%] text-white flex flex-row justify-between items-center left-1/2 bottom-25 transform -translate-x-1/2 lg:top-1/2 lg:-translate-y-1/2">
         <button
           disabled={imageIdx === 0}
           onClick={() => {
@@ -88,7 +92,7 @@ export default function PhotoModal({
           <FiArrowRight className="size-8" />
         </button>
       </div>
-    </div>,
+    </motion.div>,
     document.body,
   );
 }

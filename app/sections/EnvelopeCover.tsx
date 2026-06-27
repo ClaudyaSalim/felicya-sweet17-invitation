@@ -115,7 +115,7 @@ export default function EnvelopeCover({ toggleMusic }: EnvelopeCoverProps) {
               animate={{
                 opacity: 1,
               }}
-              transition={{ duration: 1, delay: 0.5, ease: "linear" }}
+              transition={{ duration: 1, delay: 0.5, ease: "easeInOut" }}
             >
               <div className="flex flex-row w-full gap-6 justify-center lg:justify-between px-6">
                 {icons.map((icon) => (

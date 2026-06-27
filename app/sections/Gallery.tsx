@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import PhotoModal from "../components/gallery/PhotoModal";
 import ViewPhotoBtn from "../components/gallery/ViewPhotoBtn";
+import { AnimatePresence } from "motion/react";
 
 export default function Gallery() {
   const [mounted, setMounted] = useState(false);
@@ -36,27 +37,29 @@ export default function Gallery() {
         <h2 className="relative text-center top-20">Special Moments</h2>
         <ViewPhotoBtn
           position="top-[calc(50%+1rem)] left-[calc(33%+1rem)] md:top-[calc(50%+2rem)] md:left-[calc(36%+1rem)]"
-          setOpen={()=>openFunction(0)}
+          setOpen={() => openFunction(0)}
         />
         <ViewPhotoBtn
           position="top-[calc(50%+1rem)] right-1/4 md:top-1/2 md:right-[calc(25%+3rem)]"
-          setOpen={()=>openFunction(1)}
+          setOpen={() => openFunction(1)}
         />
         <ViewPhotoBtn
           position="top-[calc(75%-0.5rem)] right-1/5 md:top-3/4 md:right-[calc(20%+2.5rem)]"
-          setOpen={()=>openFunction(2)}
+          setOpen={() => openFunction(2)}
         />
       </div>
-      {showPhoto && (
-        <PhotoModal
-          imageIdx={image}
-          setImageIdx={setImage}
-          showPhoto={showPhoto}
-          setShowPhoto={() => {
-            setShowPhoto(!showPhoto);
-          }}
-        />
-      )}
+      <AnimatePresence>
+        {showPhoto && (
+          <PhotoModal
+            imageIdx={image}
+            setImageIdx={setImage}
+            showPhoto={showPhoto}
+            setShowPhoto={() => {
+              setShowPhoto(!showPhoto);
+            }}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
