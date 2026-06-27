@@ -26,7 +26,7 @@ function CalculateTime(dday: Date){
 }
 
 export default function CountdownTimer(){
-    const dday = new Date('2026-07-18T10:30:00')
+    const dday = new Date('2026-07-18T17:30:00')
     const [timeLeft, setTimeLeft] = useState({days: 0, hours: 0, minutes: 0, seconds: 0})
 
     useEffect(()=>{
