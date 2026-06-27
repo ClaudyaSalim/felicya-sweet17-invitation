@@ -15,28 +15,28 @@ export default function WishesSection() {
   const [error, setError] = useState<string | null>(null);
 
   const getWishes = useCallback(async () => {
-    try {
-      setLoading(true);
-      const response = await fetch(`/api/wishes?page=${page}&sort=${sort}`, {
-        method: "GET",
-      });
+    // try {
+    //   setLoading(true);
+    //   const response = await fetch(`/api/wishes?page=${page}&sort=${sort}`, {
+    //     method: "GET",
+    //   });
 
-      if (!response.ok) {
-        const message = `An error occurred: ${response.statusText}`;
-        setError("Error fetching wishes");
-        console.error(message);
-        return;
-      }
-      const res = await response.json();
-      setWishes(res.wishes);
-      setTotalPages(res.total_pages);
-      setError(null);
-    } catch (error) {
-      console.error("Error fetching wishes: ", error);
-      setError("Error fetching wishes");
-    } finally {
-      setLoading(false);
-    }
+    //   if (!response.ok) {
+    //     const message = `An error occurred: ${response.statusText}`;
+    //     setError("Error fetching wishes");
+    //     console.error(message);
+    //     return;
+    //   }
+    //   const res = await response.json();
+    //   setWishes(res.wishes);
+    //   setTotalPages(res.total_pages);
+    //   setError(null);
+    // } catch (error) {
+    //   console.error("Error fetching wishes: ", error);
+    //   setError("Error fetching wishes");
+    // } finally {
+    //   setLoading(false);
+    // }
   }, [page, sort]);
 
   useEffect(() => {

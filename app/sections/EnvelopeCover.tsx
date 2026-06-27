@@ -73,15 +73,17 @@ export default function EnvelopeCover({ toggleMusic }: EnvelopeCoverProps) {
       <AnimatePresence mode="wait">
         {open && (
           <motion.div
-            className={`z-11 absolute w-full md:w-[80%] lg:w-fit h-full top-0 left-1/2 transform -translate-x-1/2 flex flex-col justify-center items-center [--scale-paper:0.5] lg:[--scale-paper:0.8] [--start-point-paper:20%] lg:[--start-point-paper:0%]`}
+            className={`z-11 absolute w-full md:w-[80%] lg:w-fit h-full top-0 left-1/2 transform -translate-x-1/2 flex flex-col justify-center items-center [--scale-paper-x:0.5] [--scale-paper-y:0.45] lg:[--scale-paper-x:0.8] lg:[--scale-paper-y:0.8] [--start-point-paper:0%] lg:[--start-point-paper:0%]`}
             initial={{
-              scale: "var(--scale-paper)",
+              scaleX: "var(--scale-paper-x)",
+              scaleY: "var(--scale-paper-y)",
               originY: "var(--start-point-paper)",
               overflow: "hidden",
               backgroundColor: "#FCF7F3",
             }}
             animate={{
-              scale: 1,
+              scaleX: 1,
+              scaleY: 1,
               overflow: "visible",
               backgroundColor: "none",
             }}
@@ -105,24 +107,39 @@ export default function EnvelopeCover({ toggleMusic }: EnvelopeCoverProps) {
               }}
               transition={{ duration: 1, delay: 0.5, ease: "linear" }}
             />
-            <div className="w-full h-full flex flex-col items-center justify-center gap-6 lg:gap-3">
+            <motion.div
+              className="w-full h-full flex flex-col items-center justify-center gap-6 lg:gap-3"
+              initial={{
+                opacity: 0,
+              }}
+              animate={{
+                opacity: 1,
+              }}
+              transition={{ duration: 1, delay: 0.5, ease: "linear" }}
+            >
               <div className="flex flex-row w-full gap-6 justify-center lg:justify-between px-6">
                 {icons.map((icon) => (
-                  <MotionImage
-                    src={icon.src}
-                    alt={icon.label}
+                  <div
                     key={icon.label}
-                    className={`size-30 lg:size-12`}
-                    title={icon.label}
-                    width={1200}
-                    height={1200}
-                  />
+                    className="w-fit h-fit flex flex-col items-center justify-center"
+                  >
+                    <Image
+                      src={icon.src}
+                      alt={icon.label}
+                      key={icon.label}
+                      className={`size-30 lg:size-12`}
+                      title={icon.label}
+                      width={1200}
+                      height={1200}
+                    />
+                    <span>No {icon.label}</span>
+                  </div>
                 ))}
               </div>
-              <motion.span className="text-xl lg:text-sm mb-3">
+              <span className="text-xl lg:text-sm mb-3">
                 Scroll down for more
-              </motion.span>
-            </div>
+              </span>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
