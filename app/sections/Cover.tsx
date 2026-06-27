@@ -22,6 +22,17 @@ export default function Cover() {
     }
   }, []);
 
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if(document.visibilityState === "visible" && isPlaying) {
+        playerRef.current?.playVideo()
+      }
+    }
+
+    document.addEventListener("visibilitychange", handleVisibilityChange)
+    return () => document.removeEventListener("visibilitychange", handleVisibilityChange)
+  }, [isPlaying])
+
   const toggleMusic = () => {
     console.log("toggleMusic called");
     console.log("ready:", ready);

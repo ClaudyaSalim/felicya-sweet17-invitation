@@ -14,7 +14,7 @@ export default function Hero() {
         rel="noopener noreferrer"
         className="z-2 rounded-full bg-secondary p-3 -mt-16 lg:self-end lg:-ml-36"
       >
-        <FiInstagram className="size-12 text-white" />
+        <FiInstagram className="size-8 text-white" />
       </a>
       <div className="w-full flex flex-col justify-center items-center gap-6">
         <span className="text-zinc-600">YOU ARE CORDIALLY INVITED TO</span>
