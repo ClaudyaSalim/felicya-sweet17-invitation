@@ -18,9 +18,9 @@ export default function EnvelopeCover({ toggleMusic }: EnvelopeCoverProps) {
   const [envShow, setEnvShow] = useState(true);
 
   const icons = [
-    { label: "doll", src: "/gift-icons/teddy-bear.svg" },
-    { label: "toy", src: "/gift-icons/train.svg" },
-    { label: "blindbox", src: "/gift-icons/box.svg" },
+    { label: "doll", src: "/gift-icons/doll.svg" },
+    { label: "toy", src: "/gift-icons/toy.svg" },
+    { label: "blindbox", src: "/gift-icons/blindbox.svg" },
   ];
 
   useEffect(() => {
@@ -70,7 +70,7 @@ export default function EnvelopeCover({ toggleMusic }: EnvelopeCoverProps) {
         ></div>
       </div>
       {/* paper */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {open && (
           <motion.div
             className={`z-11 absolute w-full md:w-[80%] lg:w-fit h-full top-0 left-1/2 transform -translate-x-1/2 flex flex-col justify-center items-center [--scale-paper:0.5] lg:[--scale-paper:0.8] [--start-point-paper:20%] lg:[--start-point-paper:0%]`}
@@ -108,21 +108,18 @@ export default function EnvelopeCover({ toggleMusic }: EnvelopeCoverProps) {
             <div className="w-full h-full flex flex-col items-center justify-center gap-6 lg:gap-3">
               <div className="flex flex-row w-full gap-6 justify-center lg:justify-between px-6">
                 {icons.map((icon) => (
-                  <motion.div
+                  <MotionImage
+                    src={icon.src}
+                    alt={icon.label}
                     key={icon.label}
-                    className={`bg-secondary size-30 lg:size-12`}
-                    style={{
-                      maskImage: `url(${icon.src})`,
-                      WebkitMaskImage: `url(${icon.src})`,
-                      maskSize: "contain",
-                      maskRepeat: "no-repeat",
-                      maskPosition: "center",
-                    }}
+                    className={`size-30 lg:size-12`}
                     title={icon.label}
+                    width={1200}
+                    height={1200}
                   />
                 ))}
               </div>
-              <motion.span className="text-2xl lg:text-sm">
+              <motion.span className="text-xl lg:text-sm mb-3">
                 Scroll down for more
               </motion.span>
             </div>
