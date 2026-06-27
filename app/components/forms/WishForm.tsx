@@ -11,11 +11,13 @@ export default function WishForm({ onWishCreated }: WishFormProps) {
   const [state, formAction, isPending] = useActionState(handleSubmit, null);
   const formRef = useRef<HTMLFormElement>(null);
   const [disable, setDisable] = useState(true);
+  const [submitErr, setSubmitErr] = useState<string | null>(null);
 
   useEffect(() => {
     if (state?.success) {
       formRef.current?.reset();
       onWishCreated();
+      setSubmitErr(null);
     }
   }, [state, onWishCreated]);
 
@@ -39,12 +41,14 @@ export default function WishForm({ onWishCreated }: WishFormProps) {
       const result = await response.json();
 
       if (response.ok) {
-        setDisable(true)
+        setDisable(true);
         return { success: "Successfully subscribed!" };
       } else {
+        setSubmitErr("Uh oh! Something went wrong");
         return { error: result.message };
       }
     } catch (error) {
+      setSubmitErr("Failed to send wishes");
       return { error: error };
     }
   }
@@ -71,13 +75,18 @@ export default function WishForm({ onWishCreated }: WishFormProps) {
           id="sender-wish"
           name="wish"
           placeholder="Enter your wishes here ..."
+          rows={5}
           onChange={(e) => {
             e.target.value === "" ? setDisable(true) : setDisable(false);
           }}
           required
         />
+        <p className="text-sm text-error">{submitErr ? submitErr : ""}</p>
       </InputGroup>
-      <button type="submit" disabled={isPending || disable}>
+      <button type="submit" disabled={isPending || disable} className="h-15 flex flex-row items-center justify-center gap-2">
+        {isPending && (
+          <svg className="stroke-white h-full w-auto mr-2 my-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g><circle cx="12" cy="12" r="9.5" fill="none" strokeWidth="3" strokeLinecap="round"><animate attributeName="stroke-dasharray" dur="1.5s" calcMode="spline" values="0 150;42 150;42 150;42 150" keyTimes="0;0.475;0.95;1" keySplines="0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1" repeatCount="indefinite"/><animate attributeName="stroke-dashoffset" dur="1.5s" calcMode="spline" values="0;-16;-59;-59" keyTimes="0;0.475;0.95;1" keySplines="0.42,0,0.58,1;0.42,0,0.58,1;0.42,0,0.58,1" repeatCount="indefinite"/></circle><animateTransform attributeName="transform" type="rotate" dur="2s" values="0 12 12;360 12 12" repeatCount="indefinite"/></g></svg>
+        )}
         Send Wish
       </button>
 
@@ -90,7 +99,7 @@ export default function WishForm({ onWishCreated }: WishFormProps) {
           maskImage: "linear-gradient(40deg, black 20%, transparent 90%)",
           WebkitMaskImage: "linear-gradient(40deg, black 20%, transparent 90%)",
           maskComposite: "intersect",
-          WebkitMaskComposite: "source-in"
+          WebkitMaskComposite: "source-in",
         }}
       />
 

@@ -19,6 +19,7 @@
   --color-lg-element-100: #ffdfd9;
   --color-cream: #fffccf;
   --color-sage-green: #aec8b6;
+  --color-error: oklch(58.6% 0.253 17.585);
 }
 
 :root {
