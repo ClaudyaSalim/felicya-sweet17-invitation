@@ -107,7 +107,7 @@ export default function WishForm({ onWishCreated }: WishFormProps) {
         src={"/assets/lily-bottom-center.png"}
         alt="Flowers"
         aria-hidden="true"
-        className="decor -bottom-60 lg:-bottom-80 -left-50 md:-left-80 w-80 lg:w-100 drop-shadow-upwards"
+        className="decor -bottom-60 lg:-bottom-80 -left-50 md:-left-80 w-80 lg:w-100"
         style={{
           maskImage:
             "radial-gradient(circle at top, black 30%, transparent 75%)",

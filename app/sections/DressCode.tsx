@@ -1,11 +1,11 @@
 export default function DressCode() {
   return (
     <section
-      className="relative w-full h-screen flex flex-col items-center justify-center gap-6 overflow-y-visible"
+      className="relative w-full h-screen flex flex-col items-center justify-center gap-6 bg-soft-bg overflow-y-visible"
       id="dresscode"
     >
-      <h2>Dress Code</h2>
-      <div className="palette flex flex-row gap-6">
+      <h2 className="z-1 bg-radial from-soft-bg to-88% p-5 rounded-full">Dress Code</h2>
+      <div className="palette flex flex-row gap-6 z-1 bg-radial from-soft-bg rounded-full">
         <span className="size-20 bg-sage-green rounded-full flex flex-row items-center justify-center text-xl">
           Male
         </span>
@@ -30,7 +30,7 @@ export default function DressCode() {
         src={"/assets/inv/flowers-side-left-sm.png"}
         alt="Flowers"
         aria-hidden="true"
-        className="decor top-10 lg:top-0 -left-5 size-80 lg:size-60 z-3 drop-shadow-downwards"
+        className="decor top-10 lg:top-0 -left-5 size-80 lg:size-60 drop-shadow-downwards"
         style={{
           maskImage:
             "radial-gradient(circle, black 30%, transparent 70%)",

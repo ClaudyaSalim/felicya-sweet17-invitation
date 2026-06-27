@@ -79,7 +79,7 @@ export default function DateLoc() {
         className="decor -top-10 lg:-top-45 -right-30 lg:-right-20 w-80 lg:w-90 transform -rotate-60 drop-shadow-upwards"
         style={{
           maskImage:
-            "radial-gradient(circle at right bottom, black 20%, transparent 75%)",
+            "radial-gradient(circle at right, black 20%, transparent 75%)",
           WebkitMaskImage:
             "radial-gradient(circle, black 30%, transparent 70%)",
           maskComposite: "intersect",

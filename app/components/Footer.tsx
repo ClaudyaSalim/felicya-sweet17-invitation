@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <div className="relative w-full px-6 flex flex-col justify-center overflow-y-visible">
       <hr className="border border-secondary/40" />
-      <span className="z-4 text-center py-6 text-gray-500 drop-shadow-2xl drop-shadow-white">Made by Claudya Salim (Felicya's Sister)</span>
+      <p className="z-4 text-center py-6 text-gray-500 sm:bg-linear-to-r sm:via-soft-bg bg-linear-[to_right,#fff4f100_0%,theme(colors.soft-bg)_20%,theme(colors.soft-bg)_80%,#fff4f100_100%]">Made by Claudya Salim (Felicya's Sister)</p>
       
       <img
         src={"/assets/inv/flowers-bottom-left.png"}
