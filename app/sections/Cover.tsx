@@ -1,9 +1,8 @@
 "use client";
 
-import { Suspense, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Music from "../components/Music";
 import EnvelopeCover from "./EnvelopeCover";
-import LoadingScreen from "../components/LoadingScreen";
 
 export default function Cover() {
   const playerRef = useRef<any>(null);

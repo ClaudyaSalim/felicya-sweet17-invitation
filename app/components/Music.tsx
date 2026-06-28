@@ -16,14 +16,18 @@ export default function Music({
   onReady,
   toggleMusic,
 }: MusicProps) {
-
+  const videoId = process.env.NEXT_PUBLIC_BGM_ID;
+  
   useEffect(() => {
-    const videoId = process.env.NEXT_PUBLIC_BGM_ID;
-    console.log("Music useEffect running");
-    console.log("YT already exists:", !!(window as any).YT?.Player);
-    console.log("yt-script exists:", !!document.getElementById("yt-script"));
+    if (document.getElementById("yt-script")) {
+      return;
+    }
 
     console.log("initializing player");
+    const ytubeScript = document.createElement("script");
+    ytubeScript.src = "https://www.youtube.com/iframe_api";
+    // ytubeScript.id = "yt-script"
+    document.body.appendChild(ytubeScript);
 
     const initPlayer = () => {
       console.log("initPlayer called");
@@ -41,19 +45,6 @@ export default function Music({
         },
       });
     };
-
-    if (document.getElementById("yt-script")) {
-      console.log("script already exists, trying direct init");
-      if ((window as any).YT?.Player) {
-        initPlayer();
-      }
-      return;
-    }
-
-    const ytubeScript = document.createElement("script");
-    ytubeScript.src = "https://www.youtube.com/iframe_api";
-    ytubeScript.id = "yt-script"
-    document.body.appendChild(ytubeScript);
 
     if ((window as any).YT?.Player) {
       initPlayer();
