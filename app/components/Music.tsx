@@ -18,16 +18,13 @@ export default function Music({
   onReady,
   toggleMusic,
 }: MusicProps) {
-  const videoId = process.env.NEXT_PUBLIC_BGM_ID;
 
   useEffect(() => {
+    const videoId = process.env.NEXT_PUBLIC_BGM_ID;
     console.log("Music useEffect running");
     console.log("YT already exists:", !!(window as any).YT?.Player);
     console.log("yt-script exists:", !!document.getElementById("yt-script"));
 
-    const ytubeScript = document.createElement("script");
-    ytubeScript.src = "https://www.youtube.com/iframe_api";
-    document.body.appendChild(ytubeScript);
     console.log("initializing player");
 
     const initPlayer = () => {
@@ -55,12 +52,17 @@ export default function Music({
       return;
     }
 
+    const ytubeScript = document.createElement("script");
+    ytubeScript.src = "https://www.youtube.com/iframe_api";
+    ytubeScript.id = "yt-script"
+    document.body.appendChild(ytubeScript);
+
     if ((window as any).YT?.Player) {
       initPlayer();
     } else {
       (window as any).onYouTubeIframeAPIReady = initPlayer;
     }
-  }, [parentMounted]);
+  }, []);
 
   return (
     <div className={`z-12 w-fit fixed right-0 bottom-4`}>

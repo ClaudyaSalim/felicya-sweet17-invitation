@@ -13,7 +13,6 @@ export default function Cover() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const hasOpened = sessionStorage.getItem("coverOpened");
     if (!hasOpened) {
       if ("scrollRestoration" in history) {
@@ -23,6 +22,7 @@ export default function Cover() {
         window.scrollTo({ top: 0, behavior: "instant" });
       }, 0);
     }
+    setMounted(true);
   }, []);
 
   useEffect(() => {
