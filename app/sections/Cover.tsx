@@ -67,6 +67,7 @@ export default function Cover() {
           playerRef={playerRef}
           shouldPlayRef={shouldPlayRef}
           isPlaying={isPlaying}
+          parentMounted={mounted}
           onReady={(ready) => {
             setReady(ready);
           }}
