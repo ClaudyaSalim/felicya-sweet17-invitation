@@ -52,9 +52,7 @@ export default function Cover() {
 
   return (
     <div className="h-screen w-full flex flex-col gap-20">
-      <Suspense>
-        <EnvelopeCover toggleMusic={toggleMusic} />
-      </Suspense>
+      <EnvelopeCover toggleMusic={toggleMusic} />
       <Music
         playerRef={playerRef}
         shouldPlayRef={shouldPlayRef}

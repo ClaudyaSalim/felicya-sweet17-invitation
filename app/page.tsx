@@ -8,20 +8,23 @@ import Footer from "./components/Footer";
 import Gallery from "./sections/Gallery";
 import EndSection from "./sections/EndSection";
 import Cover from "./sections/Cover";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full flex flex-col">
-      <Cover />
-      <Navbar />
-      <Hero />
-      <DateLoc />
-      <DressCode />
-      <Rvsp />
-      <WishesSection />
-      <Gallery />
-      <EndSection />
-      <Footer />
-    </div>
+    <Suspense>
+      <div className="min-h-screen w-full flex flex-col">
+        <Cover />
+        <Navbar />
+        <Hero />
+        <DateLoc />
+        <DressCode />
+        <Rvsp />
+        <WishesSection />
+        <Gallery />
+        <EndSection />
+        <Footer />
+      </div>
+    </Suspense>
   );
 }

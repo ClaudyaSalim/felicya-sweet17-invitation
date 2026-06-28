@@ -3,6 +3,9 @@ import { AnimatePresence } from "motion/react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import Doll from "../components/gift-icons/Doll";
+import Toy from "../components/gift-icons/Toy";
+import BlindBox from "../components/gift-icons/BlindBox";
 
 type EnvelopeCoverProps = {
   toggleMusic: () => void;
@@ -18,10 +21,10 @@ export default function EnvelopeCover({ toggleMusic }: EnvelopeCoverProps) {
   const [envShow, setEnvShow] = useState(true);
 
   const icons = [
-    { label: "doll", src: "/gift-icons/doll.svg" },
-    { label: "toy", src: "/gift-icons/toy.svg" },
-    { label: "blindbox", src: "/gift-icons/blindbox.svg" },
-  ];
+    {label: "doll", src: <Doll />},
+    {label: "toy", src: <Toy />},
+    {label: "blindbox", src: <BlindBox/>}
+  ]
 
   useEffect(() => {
     console.log("Open", open);
@@ -121,17 +124,9 @@ export default function EnvelopeCover({ toggleMusic }: EnvelopeCoverProps) {
                 {icons.map((icon) => (
                   <div
                     key={icon.label}
-                    className="w-24 h-fit flex flex-col items-center justify-center"
+                    className="size-24 flex flex-col items-center justify-center"
                   >
-                    <Image
-                      src={icon.src}
-                      alt={icon.label}
-                      key={icon.label}
-                      className={`size-30 lg:size-12`}
-                      title={icon.label}
-                      width={1200}
-                      height={1200}
-                    />
+                    {icon.src}
                     <span>No {icon.label}</span>
                   </div>
                 ))}
