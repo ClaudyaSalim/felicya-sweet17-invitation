@@ -60,6 +60,7 @@ export default function Music({
     if ((window as any).YT?.Player) {
       initPlayer();
     } else {
+      console.log("need to check on youtubeiframeapi ready");
       (window as any).onYouTubeIframeAPIReady = initPlayer;
     }
   }, []);
