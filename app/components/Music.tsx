@@ -18,9 +18,8 @@ export default function Music({
   onReady,
   toggleMusic,
 }: MusicProps) {
-
+  const videoId = process.env.NEXT_PUBLIC_BGM_ID;
   useEffect(() => {
-    const videoId = process.env.NEXT_PUBLIC_BGM_ID;
     console.log("Music useEffect running");
     console.log("YT already exists:", !!(window as any).YT?.Player);
     console.log("yt-script exists:", !!document.getElementById("yt-script"));
@@ -28,12 +27,19 @@ export default function Music({
     console.log("initializing player");
 
     const initPlayer = () => {
+      if (!document.getElementById("yt-player")) {
+        console.log("yt-player div not found!");
+        return;
+      }
+
       console.log("initPlayer called");
       playerRef.current = new (window as any).YT.Player("yt-player", {
         videoId,
         playerVars: { autoplay: 0, controls: 0, loop: 1, playlist: videoId },
         events: {
           onReady: () => {
+            console.log('shouldPlayRef.current:', shouldPlayRef.current)
+            console.log("onReady fired, playerRef:", playerRef.current);
             onReady(true);
             console.log("player ready");
             if (shouldPlayRef.current) {
@@ -48,13 +54,15 @@ export default function Music({
       console.log("script already exists, trying direct init");
       if ((window as any).YT?.Player) {
         initPlayer();
+      } else {
+        (window as any).onYouTubeIframeAPIReady = initPlayer;
       }
       return;
     }
 
     const ytubeScript = document.createElement("script");
     ytubeScript.src = "https://www.youtube.com/iframe_api";
-    ytubeScript.id = "yt-script"
+    ytubeScript.id = "yt-script";
     document.body.appendChild(ytubeScript);
 
     if ((window as any).YT?.Player) {
