@@ -5,7 +5,6 @@ type MusicProps = {
   playerRef: RefObject<any>;
   shouldPlayRef: RefObject<any>;
   isPlaying: boolean;
-  parentMounted: boolean;
   onReady: (ready: boolean) => void;
   toggleMusic: () => void;
 };
@@ -14,7 +13,6 @@ export default function Music({
   playerRef,
   shouldPlayRef,
   isPlaying,
-  parentMounted,
   onReady,
   toggleMusic,
 }: MusicProps) {

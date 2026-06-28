@@ -10,7 +10,6 @@ export default function Cover() {
   const shouldPlayRef = useRef(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [ready, setReady] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const hasOpened = sessionStorage.getItem("coverOpened");
@@ -22,7 +21,6 @@ export default function Cover() {
         window.scrollTo({ top: 0, behavior: "instant" });
       }, 0);
     }
-    setMounted(true);
   }, []);
 
   useEffect(() => {
@@ -56,18 +54,12 @@ export default function Cover() {
 
   return (
     <>
-      {!mounted && (
-        <div className="h-screen w-full bg-soft-bg z-50 fixed inset-0">
-          <LoadingScreen description="Loading ..." />
-        </div>
-      )}
       <div className="h-screen w-full flex flex-col gap-20">
         <EnvelopeCover toggleMusic={toggleMusic} />
         <Music
           playerRef={playerRef}
           shouldPlayRef={shouldPlayRef}
           isPlaying={isPlaying}
-          parentMounted={mounted}
           onReady={(ready) => {
             setReady(ready);
           }}
