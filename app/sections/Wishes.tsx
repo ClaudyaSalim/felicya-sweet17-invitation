@@ -5,6 +5,8 @@ import { WishModel } from "../models/Wish";
 import Wish from "../components/WishCard";
 import Pagination from "../components/Pagination";
 import WishForm from "../components/forms/WishForm";
+import Image from "next/image";
+import FlowerLoading from "../components/FlowerLoading";
 
 export default function WishesSection() {
   const [wishes, setWishes] = useState<WishModel[]>([]);
@@ -52,7 +54,8 @@ export default function WishesSection() {
       <WishForm onWishCreated={getWishes} />
       <div className="py-6 w-full md:w-[60%] min-h-100 flex flex-col items-center gap-3 z-1">
         {loading
-          ? <div className="w-full h-100 flex flex-col justify-center items-center">
+          ? <div className="w-full h-100 flex flex-col justify-center items-center gap-6">
+            <FlowerLoading />
             Loading wishes ...
           </div>
           : error
