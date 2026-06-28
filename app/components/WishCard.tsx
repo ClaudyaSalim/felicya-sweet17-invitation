@@ -7,14 +7,14 @@ type WishProps = {
 
 function formatTime(postDate: Date) {
   const now = new Date();
-  console.log(postDate); // 2026-06-10T12:06:00.000Z (automatically stored as UTC in MongoDB)
+  // console.log(postDate); // 2026-06-10T12:06:00.000Z (automatically stored as UTC in MongoDB)
   const postDateObj = new Date(postDate);
-  console.log(postDateObj); // return Wed Jun 10 2026 19:06:00 GMT+0700 (Western Indonesia Time)
+  // console.log(postDateObj); // return Wed Jun 10 2026 19:06:00 GMT+0700 (Western Indonesia Time)
 
   const diffInSeconds = Math.floor(
     (now.getTime() - postDateObj.getTime()) / 1000,
   );
-  console.log(diffInSeconds);
+  // console.log(diffInSeconds);
 
   if (diffInSeconds < 60) {
     return "Just now";

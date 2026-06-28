@@ -18,7 +18,7 @@ export default function Pagination({
     { length: windowEnd - windowStart + 1 },
     (_, i) => i + windowStart,
   );
-  console.log(windowStart, windowEnd, totalPages, pages);
+  // console.log(windowStart, windowEnd, totalPages, pages);
 
   return (
     <div className="flex flex-row items-center justify-between w-full lg:w-[60%]">
