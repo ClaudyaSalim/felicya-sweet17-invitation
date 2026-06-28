@@ -7,6 +7,7 @@ import Pagination from "../components/Pagination";
 import WishForm from "../components/forms/WishForm";
 import Image from "next/image";
 import FlowerLoading from "../components/FlowerLoading";
+import LoadingScreen from "../components/LoadingScreen";
 
 export default function WishesSection() {
   const [wishes, setWishes] = useState<WishModel[]>([]);
@@ -53,18 +54,17 @@ export default function WishesSection() {
       <h2>Send Your Wishes</h2>
       <WishForm onWishCreated={getWishes} />
       <div className="py-6 w-full md:w-[60%] min-h-100 flex flex-col items-center gap-3 z-1">
-        {loading
-          ? <div className="w-full h-100 flex flex-col justify-center items-center gap-6">
-            <FlowerLoading />
-            Loading wishes ...
+        {loading ? (
+          <div className="h-100">
+            <LoadingScreen description="Loading Wishes ..." />
           </div>
-          : error
-            ? <p className="text-error my-auto">{error}</p>
-            : wishes.length == 0
-              ? "Be the first to add your wish"
-              : wishes.map((wish) => (
-                  <Wish key={wish._id.toString()} wish={wish} />
-                ))}
+        ) : error ? (
+          <p className="text-error my-auto">{error}</p>
+        ) : wishes.length == 0 ? (
+          "Be the first to add your wish"
+        ) : (
+          wishes.map((wish) => <Wish key={wish._id.toString()} wish={wish} />)
+        )}
         {/* remove pagination if there's only 1 page */}
         {totalPages > 1 && (
           <Pagination

@@ -9,10 +9,11 @@ import Gallery from "./sections/Gallery";
 import EndSection from "./sections/EndSection";
 import Cover from "./sections/Cover";
 import { Suspense } from "react";
+import LoadingScreen from "./components/LoadingScreen";
 
 export default function Home() {
   return (
-    <Suspense>
+    <Suspense fallback={<div className="h-screen w-full bg-soft-bg z-50"><LoadingScreen description="Loading ..."/></div>}>
       <div className="min-h-screen w-full flex flex-col">
         <Cover />
         <Navbar />
