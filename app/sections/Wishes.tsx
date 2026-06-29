@@ -55,13 +55,11 @@ export default function WishesSection() {
       <WishForm onWishCreated={getWishes} />
       <div className="py-6 w-full md:w-[60%] min-h-100 flex flex-col items-center gap-3 z-1">
         {loading ? (
-          <div className="h-100">
-            <LoadingScreen description="Loading Wishes ..." />
-          </div>
+          <LoadingScreen description="Loading Wishes ..." />
         ) : error ? (
-          <p className="text-error my-auto">{error}</p>
+          <p className="text-error my-auto h-full">{error}</p>
         ) : wishes.length == 0 ? (
-          "Be the first to add your wish"
+          <p className="my-auto h-full">Be the first to add your wish</p>
         ) : (
           wishes.map((wish) => <Wish key={wish._id.toString()} wish={wish} />)
         )}

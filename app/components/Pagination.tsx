@@ -9,7 +9,7 @@ export default function Pagination({
   currPage,
   setPage,
 }: PaginationProps) {
-  const PAGES_PER_WINDOW = 4;
+  const PAGES_PER_WINDOW = 3;
   const currentWindow = Math.ceil(currPage / PAGES_PER_WINDOW);
   const windowStart = (currentWindow - 1) * PAGES_PER_WINDOW + 1;
   const windowEnd = Math.min(windowStart + PAGES_PER_WINDOW - 1, totalPages);
@@ -21,7 +21,7 @@ export default function Pagination({
   // console.log(windowStart, windowEnd, totalPages, pages);
 
   return (
-    <div className="flex flex-row items-center justify-between w-full lg:w-[60%]">
+    <div className="mt-auto flex flex-row items-center justify-between w-full h-fit lg:w-[60%]">
       <button
         className="bg-secondary"
         disabled={currPage === 1}
@@ -33,7 +33,7 @@ export default function Pagination({
       </button>
       {/* pages */}
       <div className="flex flex-row items-center gap-3">
-        {windowStart !== 1 && <span className="mx-3">...</span>}
+        {windowStart !== 1 && <span className="mx-3 text-neutral-400">...</span>}
         {pages.map((page) => (
           <button
             key={page}
