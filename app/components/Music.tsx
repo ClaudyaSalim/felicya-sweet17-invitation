@@ -18,7 +18,7 @@ export default function Music({
   onReady,
   toggleMusic,
 }: MusicProps) {
-  const videoId = process.env.NEXT_PUBLIC_BGM_ID;
+  const videoId = process.env.NEXT_PUBLIC_BGM_ID_YTUBE;
   useEffect(() => {
     console.log("Music useEffect running");
     console.log("YT already exists:", !!(window as any).YT?.Player);
