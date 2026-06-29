@@ -16,7 +16,7 @@ export default function Music({
   onReady,
   toggleMusic,
 }: MusicProps) {
-  const videoId = process.env.NEXT_PUBLIC_BGM_ID;
+  const videoId = process.env.NEXT_PUBLIC_BGM_ID_YTUBE;
   
   useEffect(() => {
     if (document.getElementById("yt-script")) {
