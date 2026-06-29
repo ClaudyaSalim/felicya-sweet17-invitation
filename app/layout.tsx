@@ -23,6 +23,22 @@ const rougeScript = Rouge_Script({
 export const metadata: Metadata = {
   title: "Felicya's Sweet 17th Invitation",
   description: "Felicya Salim Sweet Seventeen Birthday Invitation",
+
+  openGraph: {
+    title: "Felicya Salim's Sweet 17th Invitation",
+    description: "Felicya Salim Sweet Seventeen Birthday Invitation",
+    url: "https://felicya-sweet17-invitation.vercel.app/",
+    siteName: "Felicya Sweet 17 Invitation",
+    images: [
+      {
+        url: "/photoshoot/posergirl-2.jpeg",
+        width: 994,
+        height: 1500,
+        alt: "Felicya",
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({
