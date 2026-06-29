@@ -10,6 +10,8 @@ import EndSection from "./sections/EndSection";
 import Cover from "./sections/Cover";
 import { Suspense } from "react";
 import LoadingScreen from "./components/LoadingScreen";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export default function Home() {
   return (
@@ -26,6 +28,8 @@ export default function Home() {
         <EndSection />
         <Footer />
       </div>
+      <Analytics />
+      <SpeedInsights />
     </Suspense>
   );
 }
