@@ -41,11 +41,11 @@ export default function Gallery() {
         />
         <ViewPhotoBtn
           position="top-[calc(50%+1rem)] right-1/4 md:top-1/2 md:right-[calc(25%+3rem)]"
-          setOpen={() => openFunction(1)}
+          setOpen={() => openFunction(3)}
         />
         <ViewPhotoBtn
           position="top-[calc(75%-0.5rem)] right-1/5 md:top-3/4 md:right-[calc(20%+2.5rem)]"
-          setOpen={() => openFunction(2)}
+          setOpen={() => openFunction(6)}
         />
       </div>
       <AnimatePresence>

@@ -13,6 +13,12 @@ type PhotoModal = {
 
 const MotionImage = motion.create(Image);
 
+const animationVariants = {
+  initial: (d: number) => ({ opacity: 0, x: d * 50 }),
+  animate: { opacity: 1, x: 0 },
+  exit: (d: number) => ({ opacity: 0, x: d * -50 }),
+};
+
 export default function PhotoModal({
   imageIdx,
   setImageIdx,
@@ -21,15 +27,19 @@ export default function PhotoModal({
   const [direction, setDirection] = useState<1 | -1>(1);
 
   const images = [
-    "/photoshoot/posergirl-1.jpeg",
+    "/photoshoot/fullbloomcopy.jpg",
+    "/photoshoot/20JUNIEVERBLOOM11085.png",
+    "/photoshoot/20JUNIEVERBLOOM11064.png",
     "/photoshoot/posergirl-2.jpeg",
+    "/photoshoot/20JUNIEVERBLOOM11107.png",
+    "/photoshoot/20JUNIEVERBLOOM11110.png",
     "/photoshoot/posergirl-3.jpeg",
   ];
 
-  const setSelectedImg = (direction: 1 | -1) => {
-    const newImage = wrap(0, images.length, imageIdx + direction);
+  const setSelectedImg = (newDirection: 1 | -1) => {
+    const newImage = wrap(0, images.length, imageIdx + newDirection);
     setImageIdx(newImage);
-    setDirection(direction);
+    setDirection(newDirection);
   };
 
   return createPortal(
@@ -51,19 +61,21 @@ export default function PhotoModal({
         <FiX className="size-10" />
       </button>
       <div className="absolute w-[70%] h-full top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
-        <AnimatePresence custom={direction} mode="popLayout" initial={false}>
+        <AnimatePresence custom={direction} mode="wait" initial={false}>
           <MotionImage
             key={imageIdx}
-            className="relative"
+            className="relative w-full"
             src={images[imageIdx]}
             alt=""
             fill
             sizes=""
             objectFit="contain"
             loading="eager"
-            initial={{ opacity: 0, x: direction * 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: direction * -50 }}
+            custom={direction}
+            variants={animationVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
             transition={{
               delay: 0.2,
               type: "spring",

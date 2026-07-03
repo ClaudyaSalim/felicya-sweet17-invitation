@@ -11,11 +11,11 @@ export default function SlideShow() {
 
   const MotionImage = motion.create(Image);
   const photos = [
-    "/slideshows/posergirl-1.jpeg",
-    "/slideshows/posergirl-2.jpeg",
-    "/slideshows/posergirl-3.jpeg",
-    "/slideshows/posergirl-4.jpeg",
-    "/slideshows/posergirl-5.jpeg",
+    "/slideshows/fullbloomcopy.jpg",
+    "/slideshows/20JUNIEVERBLOOM11064.png",
+    "/slideshows/20JUNIEVERBLOOM11085.png",
+    "/slideshows/20JUNIEVERBLOOM11107.png",
+    "/slideshows/20JUNIEVERBLOOM11110-rotated.png",
     "/slideshows/posergirl-misc.jpeg",
     "/slideshows/pavillion-1.jpeg",
     "/slideshows/pavillion-2.jpeg",
@@ -43,7 +43,7 @@ export default function SlideShow() {
       <div className="relative w-full lg:w-[60%] h-full rounded-full overflow-hidden">
         <div className="z-1 inset-0 absolute top-0 left-0 bg-radial from-soft-bg/0 to-soft-bg" />
         <MotionImage
-          className={`w-full h-full object-cover ${currPhoto === 4 && "object-left lg:object-center"} ${currPhoto <= 3 && "object-top"} ${currPhoto===13 && "object-bottom"}`}
+          className={`w-full h-full object-cover ${currPhoto === 2 && "object-left"} ${currPhoto === 4 && "object-top-left"} ${currPhoto <= 1 && "object-top"} ${currPhoto===13 && "object-bottom"}`}
           src={photos[currPhoto]}
           alt={`Photo ${currPhoto + 1}`}
           width={600}
