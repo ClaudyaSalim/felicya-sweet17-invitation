@@ -3,7 +3,7 @@ import { FiExternalLink } from "react-icons/fi";
 
 export default function Rsvp() {
   return (
-    <div
+    <section
       className="relative pb-6 pt-16 overflow-y-visible bg-[url(/sakura-bg-3.jpg)] bg-cover bg-bottom bg-no-repeat"
       id="rvsp"
     >
@@ -62,6 +62,6 @@ export default function Rsvp() {
           WebkitMaskComposite: "source-in",
         }}
       />
-    </div>
+    </section>
   );
 }

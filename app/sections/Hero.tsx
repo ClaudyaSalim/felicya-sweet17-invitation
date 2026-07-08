@@ -1,9 +1,10 @@
 import { FiInstagram } from "react-icons/fi";
 import SlideShow from "../components/Slideshow";
+import AnimateSection from "../components/AnimateSection";
 
 export default function Hero() {
   return (
-    <section
+    <AnimateSection
       className="relative w-full h-screen flex flex-col justify-between items-center lg:flex-row gap-6 p-6 pt-26 lg:pl-20 overflow-y-visible overflow-x-hidden"
       id="home"
     >
@@ -60,6 +61,6 @@ export default function Hero() {
           WebkitMaskComposite: "source-in",
         }}
       />
-    </section>
+    </AnimateSection>
   );
 }

@@ -1,6 +1,10 @@
+"use client"
+
+import AnimateSection from "../components/AnimateSection";
+
 export default function DressCode() {
   return (
-    <section
+    <AnimateSection
       className="relative w-full h-screen flex flex-col items-center justify-center gap-6 bg-soft-bg overflow-y-visible"
       id="dresscode"
     >
@@ -54,6 +58,6 @@ export default function DressCode() {
           WebkitMaskComposite: "source-in",
         }}
       />
-    </section>
+    </AnimateSection>
   );
 }

@@ -1,9 +1,12 @@
+"use client"
+
 import { FiCornerUpRight } from "react-icons/fi";
 import CountdownTimer from "../components/CountdownTimer";
+import AnimateSection from "../components/AnimateSection";
 
 export default function DateLoc() {
   return (
-    <section
+    <AnimateSection
       className="relative w-full h-screen flex flex-col gap-16 p-6 pt-26 lg:justify-between lg:flex-row lg:items-center overflow-y-visible overflow-x-clip"
       id="date-time"
     >
@@ -86,6 +89,6 @@ export default function DateLoc() {
           WebkitMaskComposite: "source-in",
         }}
       />
-    </section>
+    </AnimateSection>
   );
 }

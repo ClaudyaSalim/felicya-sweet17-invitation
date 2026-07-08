@@ -28,7 +28,7 @@ export default function Gallery() {
   if (!mounted) return null;
 
   return (
-    <div
+    <section
       className="relative w-full aspect-4/5 bg-[url(/photoshoot/cover.jpg)] bg-cover bg-center"
       id="gallery"
     >
@@ -60,6 +60,6 @@ export default function Gallery() {
           />
         )}
       </AnimatePresence>
-    </div>
+    </section>
   );
 }

@@ -8,6 +8,7 @@ import WishForm from "../components/forms/WishForm";
 import Image from "next/image";
 import FlowerLoading from "../components/FlowerLoading";
 import LoadingScreen from "../components/LoadingScreen";
+import AnimateSection from "../components/AnimateSection";
 
 export default function WishesSection() {
   const [wishes, setWishes] = useState<WishModel[]>([]);
@@ -47,7 +48,7 @@ export default function WishesSection() {
   }, [getWishes]);
 
   return (
-    <div
+    <AnimateSection
       className="relative w-full h-fit p-6 flex flex-col items-center gap-6 pt-26 overflow-y-visible  overflow-x-clip"
       id="wishes"
     >
@@ -88,6 +89,6 @@ export default function WishesSection() {
           WebkitMaskComposite: "source-in",
         }}
       />
-    </div>
+    </AnimateSection>
   );
 }
