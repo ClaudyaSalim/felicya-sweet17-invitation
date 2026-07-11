@@ -39,27 +39,24 @@ export default function SlideShow() {
   }, []);
 
   return (
-    <AnimatePresence mode="wait">
-      <div className="relative w-full lg:w-[60%] h-full rounded-full overflow-hidden">
-        <div className="z-1 inset-0 absolute top-0 left-0 bg-radial from-soft-bg/0 to-soft-bg" />
-        <MotionImage
-          className={`w-full h-full object-cover ${currPhoto === 2 && "object-left"} ${currPhoto === 4 && "object-top-left"} ${currPhoto <= 1 && "object-top"} ${currPhoto===13 && "object-bottom"}`}
-          src={photos[currPhoto]}
-          alt={`Photo ${currPhoto + 1}`}
-          width={600}
-          height={800}
-          loading="eager"
-          initial={{ opacity: 0.4 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0.4 }}
-          transition={{ duration: 2, ease: "easeInOut" }}
-          style={{
-            WebkitMaskImage:
-              "radial-gradient(circle, black 65%, transparent 100%)",
-            maskImage: "radial-gradient(circle, black 65%, transparent 100%)",
-          }}
-        />
-      </div>
-    </AnimatePresence>
+    <div className="relative w-full lg:w-[60%] h-full rounded-full overflow-hidden">
+      <div className="z-1 inset-0 absolute top-0 left-0 bg-radial from-soft-bg/0 to-soft-bg" />
+      <MotionImage
+        className={`w-full h-full object-cover ${currPhoto === 2 && "object-left"} ${currPhoto === 4 && "object-top-left"} ${currPhoto <= 1 && "object-top"} ${currPhoto === 13 && "object-bottom"}`}
+        src={photos[currPhoto]}
+        alt={`Photo ${currPhoto + 1}`}
+        width={600}
+        height={800}
+        loading="eager"
+        initial={{ opacity: 0.2 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2, ease: "easeInOut" }}
+        style={{
+          WebkitMaskImage:
+            "radial-gradient(circle, black 65%, transparent 100%)",
+          maskImage: "radial-gradient(circle, black 65%, transparent 100%)",
+        }}
+      />
+    </div>
   );
 }
