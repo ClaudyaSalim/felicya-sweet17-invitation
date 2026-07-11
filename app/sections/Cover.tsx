@@ -21,18 +21,6 @@ export default function Cover() {
     }
   }, []);
 
-  // useEffect(() => {
-  //   const handleVisibilityChange = () => {
-  //     if (document.visibilityState === "visible" && isPlaying) {
-  //       playerRef.current?.play();
-  //     }
-  //   };
-
-  //   document.addEventListener("visibilitychange", handleVisibilityChange);
-  //   return () =>
-  //     document.removeEventListener("visibilitychange", handleVisibilityChange);
-  // }, [isPlaying]);
-
   const toggleMusic = () => {
     if (isPlaying) {
       playerRef.current.pause();

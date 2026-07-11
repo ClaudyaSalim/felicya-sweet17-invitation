@@ -39,7 +39,6 @@ export default function EnvelopeCover({ toggleMusic }: EnvelopeCoverProps) {
     if (open) {
       // delay 0.5 s
       const timer = setTimeout(() => {
-        // set env show to false
         setEnvShow(false);
       }, 500);
       return () => clearTimeout(timer);
@@ -51,8 +50,11 @@ export default function EnvelopeCover({ toggleMusic }: EnvelopeCoverProps) {
       className={`z-10 w-full h-screen bg-[url(/envelope-cover-bg.jpeg)] bg-cover bg-center lg:bg-position-[center_top_88rem] relative`}
     >
       <div className="z-11 absolute inset-0 w-full h-full bg-linear-to-b from-soft-bg/0 to-soft-bg backdrop-blur-[1px]"></div>
-      <div
+      <motion.div
         className={`${!envShow && "hidden"} z-13 relative w-100 h-80 top-1/2 left-1/2 transform -translate-1/2`}
+        initial={{opacity: 0, y: 50}}
+        animate={{opacity: 1, y: 0}}
+        transition={{duration: 1, type: "spring", bounce: 0.5}}
       >
         {/* front face */}
         <div
@@ -69,9 +71,9 @@ export default function EnvelopeCover({ toggleMusic }: EnvelopeCoverProps) {
           </p>
         </div>
         <div
-          className={`opening clip-triangle rounded-t-lg w-100 h-20 bg-amber-100 absolute top-0 left-0 transform ${!open ? "hidden" : "rotate-0 translate-y-0"}`}
+          className={`opening clip-triangle rounded-t-lg w-100 h-20 bg-amber-100 absolute top-1 left-0 transform ${!open ? "hidden" : "rotate-0 translate-y-0"}`}
         ></div>
-      </div>
+      </motion.div>
       {/* paper */}
       <AnimatePresence mode="wait">
         {open && (
