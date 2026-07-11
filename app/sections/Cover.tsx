@@ -16,6 +16,7 @@ export default function Cover() {
       }
       setTimeout(() => {
         window.scrollTo({ top: 0, behavior: "instant" });
+        window.history.replaceState(null, '', '/')
       }, 0);
     }
   }, []);
