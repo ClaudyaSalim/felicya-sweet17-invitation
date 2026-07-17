@@ -78,7 +78,7 @@ export default function EnvelopeCover({ toggleMusic }: EnvelopeCoverProps) {
       <AnimatePresence mode="wait">
         {open && (
           <motion.div
-            className={`z-11 absolute w-full md:w-[80%] lg:w-fit h-full top-0 left-1/2 transform -translate-x-1/2 flex flex-col justify-center items-center gap-20 lg:gap-0 [--scale-paper-x:0.5] [--scale-paper-y:0.4] lg:[--scale-paper-x:0.8] lg:[--scale-paper-y:0.8] landscape:[--start-point-paper:0%] landscape:[--scale-paper-y:0.7] [--start-point-paper:20%]`}
+            className={`z-11 absolute w-full md:w-[80%] lg:w-fit h-full top-0 left-1/2 transform -translate-x-1/2 flex flex-col justify-center items-center [--scale-paper-x:0.5] [--scale-paper-y:0.4] lg:[--scale-paper-x:0.8] lg:[--scale-paper-y:0.8] landscape:[--start-point-paper:0%] landscape:[--scale-paper-y:0.7] [--start-point-paper:20%]`}
             initial={{
               scaleX: "var(--scale-paper-x)",
               scaleY: "var(--scale-paper-y)",
@@ -99,7 +99,7 @@ export default function EnvelopeCover({ toggleMusic }: EnvelopeCoverProps) {
             }}
           >
             <MotionImage
-              src={"/Felicya-Invitation-Final - Copy.JPG"}
+              src={"//Felicya-Invitation.jpeg"}
               alt="Felicya's Invitation"
               width={1331}
               height={1600}
@@ -113,7 +113,7 @@ export default function EnvelopeCover({ toggleMusic }: EnvelopeCoverProps) {
               transition={{ duration: 1, delay: 0.5, ease: "linear" }}
             />
             <motion.div
-              className="w-full h-fit lg:h-full flex flex-col items-center justify-center gap-6 lg:gap-3"
+              className="w-full h-full flex flex-col items-center justify-center gap-6 lg:gap-3"
               initial={{
                 opacity: 0,
               }}
