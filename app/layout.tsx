@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "Felicya Sweet 17 Invitation",
     images: [
       {
-        url: "/photoshoot/posergirl-3.jpeg",
+        url: "/photoshoot/20JUNIEVERBLOOM11110.png",
         width: 994,
         height: 1500,
         alt: "Felicya",
