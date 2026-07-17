@@ -99,7 +99,7 @@ export default function EnvelopeCover({ toggleMusic }: EnvelopeCoverProps) {
             }}
           >
             <MotionImage
-              src={"//Felicya-Invitation.jpeg"}
+              src={"/Felicya-Invitation.jpeg"}
               alt="Felicya's Invitation"
               width={1331}
               height={1600}

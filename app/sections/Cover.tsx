@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Music from "../components/Music";
 import EnvelopeCover from "./EnvelopeCover";
+import EnvelopeCoverNoAnimation from "./EnvelopeCoverNoAnimation";
 
 export default function Cover() {
   const playerRef = useRef<any>(null);
@@ -33,7 +34,8 @@ export default function Cover() {
   return (
     <>
       <div className="h-screen w-full flex flex-col gap-20">
-        <EnvelopeCover toggleMusic={toggleMusic} />
+        {/* <EnvelopeCover toggleMusic={toggleMusic} /> */}
+        <EnvelopeCoverNoAnimation toggleMusic={toggleMusic} />
         <Music
           playerRef={playerRef}
           isPlaying={isPlaying}
