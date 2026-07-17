@@ -25,9 +25,9 @@ export default function Rsvp() {
         <p className="mt-2 lg:mt-6 px-6 flex-row flex-wrap text-center">
           Or fill in below -{" "}
           <b className="font-semibold">Don't forget to submit!</b>{" "}
-          {/* <span className="text-gray-500 text-nowrap">
+          <span className="text-gray-500 text-nowrap">
             Latest by 13th July 2026 23:59 WIB
-          </span> */}
+          </span>
         </p>
         <p className="text-gray-500 font-semibold text-center px-6 flex flex-wrap justify-center gap-1">
           Already submitted through the new tab?{" "}

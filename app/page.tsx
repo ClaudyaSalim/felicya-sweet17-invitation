@@ -22,7 +22,7 @@ export default function Home() {
         <Hero />
         <DateLoc />
         <DressCode />
-        <Rvsp />
+        {/* <Rvsp /> */}
         <WishesSection />
         <Gallery />
         <EndSection />
